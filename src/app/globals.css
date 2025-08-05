@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@import "../styles/components.css";
+@import "../styles/fonts.css";
 
 :root {
   --background: #ffffff;
@@ -10,6 +12,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-goldman: var(--font-goldman);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -17,6 +20,20 @@
     --background: #0a0a0a;
     --foreground: #ededed;
   }
+}
+
+/* Global styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+}
+
+/* Ensure sections have proper spacing for header */
+section {
+  scroll-margin-top: 120px;
 }
 
 body {
