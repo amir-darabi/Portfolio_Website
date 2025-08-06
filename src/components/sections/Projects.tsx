@@ -5,7 +5,7 @@ import { projects } from '@/lib/data';
 import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
 
-const Projects: React.FC = () => {
+const Projects = () => {
   const [filter, setFilter] = useState('all');
   const [showAll, setShowAll] = useState(false);
 

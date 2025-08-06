@@ -12,7 +12,7 @@ interface ButtonProps {
   type?: 'button' | 'submit' | 'reset';
 }
 
-const Button: React.FC<ButtonProps> = ({
+const Button = ({
   children,
   variant = 'primary',
   size = 'md',
@@ -22,7 +22,7 @@ const Button: React.FC<ButtonProps> = ({
   loading = false,
   className = '',
   type = 'button',
-}) => {
+}: ButtonProps) => {
   const baseClasses = 'inline-flex items-center justify-center font-medium rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2';
   
   const variantClasses = {

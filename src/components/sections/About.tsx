@@ -3,7 +3,7 @@ import { personalInfo, skills, experience } from '@/lib/data';
 import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
 
-const About: React.FC = () => {
+const About = () => {
   const skillsByCategory = skills.reduce((acc, skill) => {
     if (!acc[skill.category]) {
       acc[skill.category] = [];

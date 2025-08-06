@@ -8,13 +8,13 @@ interface CardProps {
   onClick?: () => void;
 }
 
-const Card: React.FC<CardProps> = ({
+const Card = ({
   children,
   className = '',
   hover = false,
   clickable = false,
   onClick,
-}) => {
+}: CardProps) => {
   const baseClasses = 'bg-white rounded-lg shadow-md overflow-hidden';
   const hoverClasses = hover || clickable ? 'hover:shadow-lg transition-shadow duration-300' : '';
   const clickableClasses = clickable ? 'cursor-pointer' : '';

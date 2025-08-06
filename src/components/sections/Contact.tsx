@@ -5,7 +5,7 @@ import { personalInfo } from '@/lib/data';
 import Button from '@/components/ui/Button';
 import Card from '@/components/ui/Card';
 
-const Contact: React.FC = () => {
+const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',

@@ -3,7 +3,7 @@
 import React from 'react';
 import { personalInfo } from '@/lib/data';
 
-const Footer: React.FC = () => {
+const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const scrollToTop = () => {

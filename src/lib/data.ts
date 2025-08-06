@@ -3,7 +3,7 @@ import { PersonalInfo, Project, Experience, Skill, NavigationLink } from '@/type
 // Personal Information
 export const personalInfo: PersonalInfo = {
   name: "Amir Darabi",
-  title: "Full Stack Developer",
+  title: "Software Developer...",
   bio: "Passionate developer with expertise in modern web technologies. I love creating beautiful, functional applications that solve real-world problems.",
   email: "your.email@example.com",
   phone: "+1 (555) 123-4567",
