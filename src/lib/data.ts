@@ -4,14 +4,13 @@ import { PersonalInfo, Project, Experience, Skill, NavigationLink } from '@/type
 export const personalInfo: PersonalInfo = {
   name: "Amir Darabi",
   title: "Software Developer...",
-  bio: "Passionate developer with expertise in modern web technologies. I love creating beautiful, functional applications that solve real-world problems.",
-  email: "your.email@example.com",
-  phone: "+1 (555) 123-4567",
-  location: "Your City, Country",
+  bio: "I'm a developer who loves building things that matter. I enjoy turning complex problems into simple, beautiful solutions that people actually want to use.",
+  email: "amiirdrbii@gmail.com",
+  phone: "+31 684262591",
+  location: "Amsterdam, The Netherlands",
   socialLinks: {
-    github: "https://github.com/yourusername",
-    linkedin: "https://linkedin.com/in/yourusername",
-    twitter: "https://twitter.com/yourusername",
+    github: "https://github.com/amir-darabi",
+    linkedin: "https://www.linkedin.com/in/amir-darabi-286632213",
   }
 };
 

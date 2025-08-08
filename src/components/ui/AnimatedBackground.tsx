@@ -53,19 +53,19 @@ const AnimatedBackground = () => {
 				{/* Professional animated blobs */}
 				<div
 					ref={(ref) => { blobRefs.current[0] = ref; }}
-					className="absolute top-0 -left-4 md:w-96 md:h-96 w-72 h-72 bg-blue-500 rounded-full mix-blend-screen filter blur-[100px] opacity-60 md:opacity-40"
+					className="absolute top-0 -left-4 md:w-96 md:h-96 w-72 h-72 bg-blue-500/50 rounded-full mix-blend-screen filter blur-[100px] opacity-60 md:opacity-40"
 				></div>
 				<div
 					ref={(ref) => { blobRefs.current[1] = ref; }}
-					className="absolute top-0 -right-4 w-96 h-96 bg-indigo-500 rounded-full mix-blend-screen filter blur-[100px] opacity-55 md:opacity-35 hidden sm:block"
+					className="absolute top-0 -right-4 w-96 h-96 bg-fuchsia-800/50 rounded-full mix-blend-screen filter blur-[100px] opacity-55 md:opacity-35 hidden sm:block"
 				></div>
 				<div
 					ref={(ref) => { blobRefs.current[2] = ref; }}
-					className="absolute -bottom-8 left-[-40%] md:left-20 w-96 h-96 bg-cyan-500 rounded-full mix-blend-screen filter blur-[100px] opacity-55 md:opacity-35"
+					className="absolute -bottom-8 left-[-40%] md:left-20 w-96 h-96 bg-cyan-500/50 rounded-full mix-blend-screen filter blur-[100px] opacity-55 md:opacity-35"
 				></div>
 				<div
 					ref={(ref) => { blobRefs.current[3] = ref; }}
-					className="absolute -bottom-10 right-20 w-96 h-96 bg-purple-500 rounded-full mix-blend-screen filter blur-[100px] opacity-50 md:opacity-30 hidden sm:block"
+					className="absolute -bottom-10 right-20 w-96 h-96 bg-purple-500/50 rounded-full mix-blend-screen filter blur-[100px] opacity-50 md:opacity-30 hidden sm:block"
 				></div>
 			</div>
 			{/* Professional grid pattern */}

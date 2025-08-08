@@ -47,7 +47,7 @@ const About = () => {
               </div>
               
               <div className="mt-8">
-                <Button href="/resume.pdf" variant="outline">
+                <Button href="/resume.pdf" variant="primary">
                   Download Resume
                 </Button>
               </div>

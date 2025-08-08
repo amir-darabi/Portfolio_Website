@@ -23,12 +23,12 @@ const Button = ({
   className = '',
   type = 'button',
 }: ButtonProps) => {
-  const baseClasses = 'inline-flex items-center justify-center font-medium rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2';
+  const baseClasses = 'inline-flex items-center justify-center font-medium rounded-lg transition-all duration-300 focus:outline-none';
   
   const variantClasses = {
-    primary: 'bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500',
-    secondary: 'bg-gray-600 text-white hover:bg-gray-700 focus:ring-gray-500',
-    outline: 'border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white focus:ring-blue-500',
+    primary: 'bg-fuchsia-900/30 text-white shadow-lg shadow-fuchsia-800/50 transform transition-all hover:shadow-xl hover:-translate-y-0.5',
+    secondary: 'bg-black/30 text-white shadow-lg shadow-blue-500/50 transform transition-all hover:shadow-xl hover:-translate-y-0.5',
+    outline: 'border-2 border-blue-600 text-blue-600 bg-transparent shadow-lg shadow-blue-500/40 hover:bg-blue-50 hover:shadow-2xl hover:shadow-blue-500/60',
   };
   
   const sizeClasses = {

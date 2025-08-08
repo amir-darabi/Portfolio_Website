@@ -31,10 +31,10 @@ const Header = () => {
       // Clear existing timeout
       clearExistingTimeout();
       
-      // Hide navbar after 3 seconds of no scrolling
+      // Hide navbar after 1 seconds of no scrolling
       scrollTimeoutRef.current = setTimeout(() => {
         setShowDesktopNav(false);
-      }, 3000);
+      }, 1000);
       
       // Skip section detection during programmatic scrolling, but allow it to continue
       // We just don't want to re-highlight the same section that was already clicked
@@ -207,8 +207,8 @@ const Header = () => {
       >
         <div className={`rounded-2xl transition-all duration-500 p-4 ${
           scrolled
-            ? "bg-[#030014]/80 backdrop-blur-xl border border-blue-500/10 shadow-lg"
-            : "bg-[#030014]/20 backdrop-blur-md border border-white/10"
+            ? "bg-[#030014]/80 backdrop-blur-sm border border-blue-500/10 shadow-lg"
+            : "bg-[#030014]/20 backdrop-blur-sm border border-white/10"
         }`}>
           <div className="flex flex-col space-y-6">
             {/* Logo */}

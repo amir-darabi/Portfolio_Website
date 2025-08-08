@@ -212,3 +212,30 @@
     page-break-after: always;
   }
 }
+
+/* Button matte finish effect
+.matte-finish {
+  position: relative;
+  overflow: hidden;
+}
+
+.matte-finish::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 50%, rgba(0,0,0,0.1) 100%);
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.matte-finish:hover::before {
+  opacity: 0.8;
+}
+
+.matte-finish {
+  filter: contrast(0.9) brightness(0.95);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+} */
