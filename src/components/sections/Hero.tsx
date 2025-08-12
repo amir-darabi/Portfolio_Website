@@ -1,7 +1,7 @@
 'use client'
 import React, { useEffect, useState } from 'react';
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
-import { Github, Linkedin, Mail, Download } from 'lucide-react';
+import { Github, Linkedin, Mail, Download, Briefcase, FolderOpen, Code, Layers, ArrowRight } from 'lucide-react';
 import { personalInfo } from '@/lib/data';
 import Button from '@/components/ui/Button';
 import '../../styles/fonts.css';
@@ -157,7 +157,10 @@ const Home = () => {
                     onClick={scrollToProjects}
                     variant="secondary"
                   >
-                    View My Work
+                    <span className="flex items-center gap-2">
+                      <Layers size={20} />
+                      View My Work
+                    </span>
                   </Button>
                 </div>
 
