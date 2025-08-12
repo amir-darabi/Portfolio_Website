@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap');
 
+/* Goldman - Main display font */
 .goldman-regular {
   font-family: "Goldman", sans-serif;
   font-weight: 400;
@@ -11,3 +18,68 @@
   font-weight: 700;
   font-style: normal;
 }
+
+/* Space Mono - Monospace, tech aesthetic */
+.space-mono-regular {
+  font-family: "Space Mono", monospace;
+  font-weight: 400;
+}
+
+.space-mono-bold {
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+}
+ 
+/* Exo 2 - Futuristic, readable */
+.exo2-light {
+  font-family: "Exo 2", sans-serif;
+  font-weight: 300;
+}
+
+.exo2-regular {
+  font-family: "Exo 2", sans-serif;
+  font-weight: 400;
+}
+
+.exo2-medium {
+  font-family: "Exo 2", sans-serif;
+  font-weight: 500;
+}
+
+.exo2-semibold {
+  font-family: "Exo 2", sans-serif;
+  font-weight: 600;
+}
+
+.exo2-bold {
+  font-family: "Exo 2", sans-serif;
+  font-weight: 700;
+}
+
+/* Rajdhani - Geometric, tech-inspired */
+.rajdhani-light {
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 300;
+}
+
+.rajdhani-regular {
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 400;
+}
+
+.rajdhani-medium {
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 500;
+}
+
+.rajdhani-semibold {
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 600;
+}
+
+.rajdhani-bold {
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 700;
+}
+
+

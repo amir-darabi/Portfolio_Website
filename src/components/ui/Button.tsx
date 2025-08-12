@@ -26,8 +26,8 @@ const Button = ({
   const baseClasses = 'inline-flex items-center justify-center font-medium rounded-lg transition-all duration-300 focus:outline-none';
   
   const variantClasses = {
-    primary: 'bg-fuchsia-900/30 text-white shadow-lg shadow-fuchsia-800/50 transform transition-all hover:shadow-xl hover:-translate-y-0.5',
-    secondary: 'bg-black/30 text-white shadow-lg shadow-blue-500/50 transform transition-all hover:shadow-xl hover:-translate-y-0.5',
+    primary: 'bg-fuchsia-900/30 text-white shadow-lg shadow-fuchsia-800/50 exo2-regular transform transition-all hover:shadow-xl hover:-translate-y-0.5',
+    secondary: 'bg-black/30 text-white shadow-lg shadow-blue-500/50 border-blue-500 exo2-regular transform transition-all hover:shadow-xl hover:-translate-y-0.5',
     outline: 'border-2 border-blue-600 text-blue-600 bg-transparent shadow-lg shadow-blue-500/40 hover:bg-blue-50 hover:shadow-2xl hover:shadow-blue-500/60',
   };
   

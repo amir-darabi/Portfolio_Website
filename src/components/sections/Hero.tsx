@@ -1,7 +1,7 @@
 'use client'
 import React, { useEffect, useState } from 'react';
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
-import { ChevronDown, Github, Linkedin, Mail, Download } from 'lucide-react';
+import { Github, Linkedin, Mail, Download } from 'lucide-react';
 import { personalInfo } from '@/lib/data';
 import Button from '@/components/ui/Button';
 import '../../styles/fonts.css';
@@ -17,7 +17,14 @@ const Home = () => {
   const scrollToAbout = () => {
     const aboutSection = document.getElementById('about');
     if (aboutSection) {
-      aboutSection.scrollIntoView({ behavior: 'smooth' });
+      // Add offset to account for any fixed header and ensure proper positioning
+      const yOffset = 0; // Adjust this value based on your header height
+      const y = aboutSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+      window.scrollTo({
+        top: y,
+        behavior: 'smooth'
+      });
     }
   };
 
@@ -25,7 +32,11 @@ const Home = () => {
   const scrollToProjects = () => {
     const projectsSection = document.getElementById('projects');
     if (projectsSection) {
-      projectsSection.scrollIntoView({ behavior: 'smooth' });
+      const top = projectsSection.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({
+        top: top,
+        behavior: 'smooth'
+      });
     }
   };
 
@@ -78,7 +89,7 @@ const Home = () => {
   }, [titleText]);
 
   return (
-    <section id="home" className="relative min-h-screen w-screen flex items-center justify-center overflow-hidden py-20 ">
+    <section id="home" className="relative min-h-screen w-full flex items-center justify-center overflow-hidden py-20 ">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           {/* Main Content Container */}
@@ -121,7 +132,7 @@ const Home = () => {
                 </div>
 
                 <p
-                  className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed animate-fade-in-up"
+                  className="text-lg md:text-xl text-gray-300  space-mono-regular max-w-2xl mx-auto leading-relaxed animate-fade-in-up"
                   style={{ animationDelay: '0.8s' }}
                 >
                   {personalInfo.bio}
@@ -134,7 +145,7 @@ const Home = () => {
                 >
                   <Button
                     onClick={downloadResume}
-                    variant="primary"
+                    variant="secondary"
                   >
                     <span className="flex items-center gap-2">
                       <Download size={20} />
@@ -201,18 +212,21 @@ const Home = () => {
                 </div>
               </div>
             </div>
-
-            {/* Scroll Indicator */}
+          </div>
+          {/* Scroll Indicator - Desktop Only */}
+          <div
+            className="hidden md:block absolute bottom-4  left-1/2 transform -translate-x-1/2 animate-fade-in-up"
+            style={{ animationDelay: '1.2s' }}
+          >
             <div
-              className="absolute bottom-0 left-1/2 transform -translate-x-1/2 animate-fade-in-up"
-              style={{ animationDelay: '1.2s' }}
+              className="flex flex-col items-center text-white/60 hover:text-white transition-all duration-300 cursor-pointer group"
+              onClick={scrollToAbout}
             >
-              <div
-                className="flex flex-col items-center text-white/60 hover:text-white transition-colors cursor-pointer animate-bounce-slow"
-                onClick={scrollToAbout}
-              >
-                <span className="text-sm mb-2 goldman-regular">Scroll Down</span>
-                <ChevronDown size={24} />
+              {/* Animated Mouse */}
+              <div className="relative">
+                <div className="w-6 h-10 border-2 border-white/40 rounded-full group-hover:border-white/80 transition-all duration-300 group-hover:scale-110">
+                  <div className="w-1 h-3 bg-white/60 rounded-full mx-auto mt-2 animate-scroll-down group-hover:bg-white/90 transition-colors duration-300"></div>
+                </div>
               </div>
             </div>
           </div>

@@ -8,9 +8,9 @@ import AnimatedBackground from '@/components/ui/AnimatedBackground';
 
 export default function Home() {
   return (
-    <>
+    <div className="overflow-x-hidden">
       <AnimatedBackground />
-      <main className="min-h-screen relative z-10">
+      <main className="min-h-screen relative z-10 max-w-full overflow-x-hidden">
         <Header />
         <Hero />
         <About />
@@ -18,6 +18,6 @@ export default function Home() {
         <Contact />
         <Footer />
       </main>
-    </>
+    </div>
   );
 }

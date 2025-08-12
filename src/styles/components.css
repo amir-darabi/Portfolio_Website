@@ -127,6 +127,21 @@
   }
 }
 
+@keyframes scrollDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-3px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(3px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
 /* Animation classes */
 .fade-in {
   animation: fadeIn 0.6s ease-out;
@@ -178,6 +193,10 @@
 
 .slide-in-right {
   animation: slideInFromRight 0.6s ease-out;
+}
+
+.animate-scroll-down {
+  animation: scrollDown 2s ease-in-out infinite;
 }
 
 /* Custom scrollbar */

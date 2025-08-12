@@ -25,10 +25,13 @@
 /* Global styles */
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 body {
   font-family: var(--font-sans);
+  overflow-x: hidden; /* Prevent horizontal scroll */
+  max-width: 100vw; /* Ensure body doesn't exceed viewport width */
 }
 
 /* Ensure sections have proper spacing for header */
