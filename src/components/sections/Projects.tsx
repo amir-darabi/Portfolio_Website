@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { projects } from '@/lib/data';
 import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
+import '../../styles/fonts.css';
 
 const Projects = () => {
   const [filter, setFilter] = useState('all');
@@ -30,10 +31,10 @@ const Projects = () => {
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            <h2 className="text-3xl md:text-4xl goldman-bold text-blue-500 mb-4">
               My Projects
             </h2>
-            <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-300 rajdhani-regular  max-w-2xl mx-auto">
               Here are some of the projects I&apos;ve worked on. Each project represents 
               a unique challenge and learning experience.
             </p>

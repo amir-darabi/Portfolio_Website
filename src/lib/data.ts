@@ -24,56 +24,80 @@ export const navigationLinks: NavigationLink[] = [
 
 // Skills
 export const skills: Skill[] = [
-  // Frontend
-  { name: "React", category: "Frontend", level: "Advanced" },
-  { name: "Next.js", category: "Frontend", level: "Advanced" },
-  { name: "TypeScript", category: "Frontend", level: "Advanced" },
-  { name: "JavaScript", category: "Frontend", level: "Advanced" },
-  { name: "HTML/CSS", category: "Frontend", level: "Advanced" },
-  { name: "Tailwind CSS", category: "Frontend", level: "Advanced" },
+  // Web Development
+  { name: "JavaScript", category: "Web Development", level: "Advanced" },
+  { name: "TypeScript", category: "Web Development", level: "Advanced" },
+  { name: "React", category: "Web Development", level: "Advanced" },
+  { name: "Next.js", category: "Web Development", level: "Advanced" },
+  { name: "HTML", category: "Web Development", level: "Advanced" },
+  { name: "CSS", category: "Web Development", level: "Advanced" },
+  { name: "SCSS", category: "Web Development", level: "Intermediate" },
+  { name: "Tailwind CSS", category: "Web Development", level: "Advanced" },
+  { name: "Figma", category: "Web Development", level: "Advanced" },
   
-  // Backend
-  { name: "Node.js", category: "Backend", level: "Intermediate" },
-  { name: "Express.js", category: "Backend", level: "Intermediate" },
-  { name: "Python", category: "Backend", level: "Intermediate" },
+  // Programming
+  { name: "Python", category: "Programming", level: "Advanced" },
+  { name: "Java", category: "Programming", level: "Intermediate" },
+  { name: "C", category: "Programming", level: "Intermediate" },
+  { name: "C++", category: "Programming", level: "Intermediate" },
+  { name: "Scala", category: "Programming", level: "Intermediate" },
+  { name: "R", category: "Programming", level: "Intermediate" },
   
-  // Database
-  { name: "MongoDB", category: "Database", level: "Intermediate" },
-  { name: "PostgreSQL", category: "Database", level: "Intermediate" },
+  // Data & Backend
+  { name: "SQL", category: "Data & Backend", level: "Advanced" },
+  { name: "Django", category: "Data & Backend", level: "Advanced" },
+  { name: "NodeJS", category: "Data & Backend", level: "Intermediate" },
+  { name: "Firebase", category: "Data & Backend", level: "Intermediate" },
   
-  // Tools
-  { name: "Git", category: "Tools", level: "Advanced" },
-  { name: "Docker", category: "Tools", level: "Intermediate" },
-  { name: "VS Code", category: "Tools", level: "Advanced" },
+  // Development Tools
+  { name: "Git", category: "Development Tools", level: "Advanced" },
+  { name: "GitHub", category: "Development Tools", level: "Advanced" },
+  { name: "Vercel", category: "Development Tools", level: "Advanced" },
+  { name: "Docker", category: "Development Tools", level: "Intermediate" },
+  { name: "CI/CD", category: "Development Tools", level: "Intermediate" },
+  { name: "Postman", category: "Development Tools", level: "Intermediate" },
 ];
 
 // Experience
 export const experience: Experience[] = [
   {
     id: "1",
-    company: "Tech Company",
-    position: "Frontend Developer",
-    startDate: "2022",
+    company: "Capisoft",
+    position: "Full Stack Engineer",
+    startDate: "Apr 2025",
     endDate: "Present",
     description: [
-      "Developed responsive web applications using React and Next.js",
-      "Collaborated with design team to implement pixel-perfect UI components",
-      "Optimized application performance resulting in 40% faster load times"
+      "Built scalable frontend features using React, TypeScript, and SCSS",
+      "Improved user experience and design consistency through collaboration with engineers",
+      "Participated in agile ceremonies and Git-based workflows"
     ],
-    techStack: ["React", "Next.js", "TypeScript", "Tailwind CSS"]
+    techStack: ["React", "TypeScript", "SCSS", "Git", "Agile"]
   },
   {
     id: "2",
-    company: "Startup Inc",
-    position: "Full Stack Developer",
-    startDate: "2021",
-    endDate: "2022",
+    company: "Janus Innovation hub",
+    position: "Software Development Intern",
+    startDate: "Nov 2024",
+    endDate: "Feb 2025",
     description: [
-      "Built full-stack applications using MERN stack",
-      "Implemented RESTful APIs and database design",
-      "Worked in agile environment with cross-functional teams"
+      "Conducted user and technical research to shape app features",
+      "Collaborated with cross-functional teams to streamline development and boost adoption",
+      "Organized events to promote the app and engage stakeholders"
     ],
-    techStack: ["React", "Node.js", "MongoDB", "Express.js"]
+    techStack: ["App Development", "User Research", "Cross-functional Collaboration"]
+  },
+  {
+    id: "3",
+    company: "VU Amsterdam",
+    position: "Teacher Assistant in Data Structures & Algorithms",
+    startDate: "Nov 2023",
+    endDate: "Feb 2024",
+    description: [
+      "Supported students in mastering DSA through direct guidance",
+      "Assisted in course material preparation and practical sessions",
+      "Provided mentorship for algorithmic problem-solving techniques"
+    ],
+    techStack: ["Data Structures", "Algorithms", "Teaching", "Mentorship"]
   }
 ];
 

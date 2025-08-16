@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { personalInfo } from '@/lib/data';
 import Button from '@/components/ui/Button';
 import Card from '@/components/ui/Card';
+import '../../styles/fonts.css';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -44,10 +45,10 @@ const Contact = () => {
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            <h2 className="text-3xl md:text-4xl goldman-bold text-blue-500 mb-4">
               Get In Touch
             </h2>
-            <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-300 rajdhani-regular  max-w-2xl mx-auto">
               I&apos;m always interested in new opportunities and interesting projects. 
               Let&apos;s discuss how we can work together!
             </p>
@@ -214,7 +215,7 @@ const Contact = () => {
 
                   {/* Submit Button */}
                   <Button
-                    variant="primary"
+                    variant="secondary"
                     size="lg"
                     type="submit"
                     disabled={isSubmitting}

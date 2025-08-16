@@ -22,7 +22,7 @@ const Footer = () => {
           </p>
           <Button
             onClick={scrollToTop}
-            variant="primary"
+            variant="secondary"
             size="sm"
             className="flex-shrink-0"
             aria-label="Back to top"

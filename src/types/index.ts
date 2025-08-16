@@ -24,7 +24,7 @@ export interface Experience {
 
 export interface Skill {
   name: string;
-  category: "Frontend" | "Backend" | "Database" | "Tools" | "Other";
+  category: "Web Development" | "Programming" | "Data & Backend" | "Development Tools";
   level?: "Beginner" | "Intermediate" | "Advanced";
 }
 

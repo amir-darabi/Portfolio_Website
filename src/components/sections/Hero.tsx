@@ -111,7 +111,7 @@ const Home = () => {
                   </p>
 
                   <h1
-                    className="text-2xl md:text-4xl lg:text-6xl font-bold bg-gradient-to-r from-white via-purple-200 to-cyan-300 bg-clip-text text-transparent goldman-bold leading-tight animate-fade-in-scale"
+                    className="text-2xl md:text-4xl lg:text-6xl goldman-bold bg-gradient-to-r from-blue-500 to-purple-900 bg-clip-text text-transparent leading-tight animate-fade-in-scale"
                     style={{ animationDelay: '0.4s' }}
                   >
                     {personalInfo.name}
