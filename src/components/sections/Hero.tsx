@@ -104,14 +104,14 @@ const Home = () => {
               >
                 <div className="space-y-2 animate-fade-in-up">
                   <p
-                    className="text-lg md:text-xl text-purple-300 goldman-regular tracking-wider animate-fade-in-up"
+                    className="text-lg md:text-xl text-gray-300 goldman-regular tracking-wider animate-fade-in-up"
                     style={{ animationDelay: '0.2s' }}
                   >
                     Hello, I&apos;m
                   </p>
 
                   <h1
-                    className="text-2xl md:text-4xl lg:text-6xl goldman-bold bg-gradient-to-r from-blue-500 to-purple-900 bg-clip-text text-transparent leading-tight animate-fade-in-scale"
+                    className="text-2xl md:text-4xl lg:text-6xl goldman-bold bg-gradient-to-r from-cyan-300 via-blue-600 to-purple-800 bg-clip-text text-transparent leading-tight animate-fade-in-scale"
                     style={{ animationDelay: '0.4s' }}
                   >
                     {personalInfo.name}
@@ -123,7 +123,7 @@ const Home = () => {
                   >
                     {/* Typing Effect */}
                     <div className="h-8 flex items-center">
-                      <span className="text-xl md:text-2xl text-cyan-300 font-light goldman-regular">
+                      <span className="text-xl md:text-2xl text-blue-800 font-light goldman-regular">
                         {text}
                       </span>
                       <span className="w-[3px] h-6 bg-gradient-to-t from-[#6366f1] to-[#a855f7] ml-1 animate-blink"></span>

@@ -31,9 +31,13 @@ const Projects = () => {
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl goldman-bold text-blue-500 mb-4">
-              My Projects
-            </h2>
+            <div className="flex items-center justify-center mb-4">
+              <div className="flex-1 h-px bg-gradient-to-r from-transparent via-cyan-500 to-blue-500 max-w-32"></div>
+              <h2 className="text-3xl md:text-4xl goldman-bold mx-6 bg-gradient-to-r from-cyan-500 to-blue-600 bg-clip-text text-transparent">
+                My Projects
+              </h2>
+              <div className="flex-1 h-px bg-gradient-to-l from-transparent via-blue-500/50 to-blue-500/80 max-w-32"></div>
+            </div>
             <p className="text-lg text-gray-300 rajdhani-regular  max-w-2xl mx-auto">
               Here are some of the projects I&apos;ve worked on. Each project represents 
               a unique challenge and learning experience.
