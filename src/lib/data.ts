@@ -62,41 +62,41 @@ export const experience: Experience[] = [
   {
     id: "1",
     company: "Capisoft",
-    position: "Full Stack Engineer",
+    position: "Full Stack Developer",
+    location: "Amsterdam, Netherlands",
     startDate: "Apr 2025",
     endDate: "Present",
     description: [
-      "Built scalable frontend features using React, TypeScript, and SCSS",
-      "Improved user experience and design consistency through collaboration with engineers",
+      "Built scalable frontend features using React, Typescript and ChakraUI, with Django powering the backend",
+      "Improved user experience and design consistency through collaboration with developers",
       "Participated in agile ceremonies and Git-based workflows"
-    ],
-    techStack: ["React", "TypeScript", "SCSS", "Git", "Agile"]
+    ]
   },
   {
     id: "2",
     company: "Janus Innovation hub",
     position: "Software Development Intern",
+    location: "San Diego, California",
     startDate: "Nov 2024",
     endDate: "Feb 2025",
     description: [
       "Conducted user and technical research to shape app features",
       "Collaborated with cross-functional teams to streamline development and boost adoption",
       "Organized events to promote the app and engage stakeholders"
-    ],
-    techStack: ["App Development", "User Research", "Cross-functional Collaboration"]
+    ]
   },
   {
     id: "3",
     company: "VU Amsterdam",
     position: "Teacher Assistant in Data Structures & Algorithms",
+    location: "Amsterdam, Netherlands",
     startDate: "Nov 2023",
     endDate: "Feb 2024",
     description: [
       "Supported students in mastering DSA through direct guidance",
       "Assisted in course material preparation and practical sessions",
       "Provided mentorship for algorithmic problem-solving techniques"
-    ],
-    techStack: ["Data Structures", "Algorithms", "Teaching", "Mentorship"]
+    ]
   }
 ];
 

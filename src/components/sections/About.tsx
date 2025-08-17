@@ -191,58 +191,74 @@ const About = () => {
 
 
 
-          {/* Professional Experience - LinkedIn Style */}
+          {/* Professional Experience - Enhanced Glass Design */}
           <div>
             <h3 className="text-2xl goldman-bold text-blue-600 mb-8 text-center">
               Professional Experience
             </h3>
-            <Card className="p-8 bg-white/10 backdrop-blur-sm border border-white/20" hover={true}>
-              <div className="relative">
+            
+            {/* Super Glassy Container */}
+            <div className="relative p-8 bg-gradient-to-br from-white/5 via-white/2 to-transparent backdrop-blur-2xl border border-white/10 rounded-3xl shadow-2xl shadow-black/30 hover:shadow-cyan-500/10 transition-all duration-700 overflow-hidden">
+              
+              {/* Multiple Glass Layers for Enhanced Effect */}
+              <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/3 via-blue-500/2 to-purple-500/3 rounded-3xl"></div>
+              <div className="absolute inset-0 bg-gradient-to-tr from-white/5 via-transparent to-white/2 rounded-3xl"></div>
+              <div className="absolute top-0 left-0 w-full h-1/3 bg-gradient-to-b from-white/10 via-white/5 to-transparent rounded-t-3xl"></div>
+              
+              <div className="relative z-10">
                 {experience.map((exp, index) => (
-                  <div key={exp.id} className="relative flex gap-6 pb-8 last:pb-0">
-                    {/* Timeline line */}
+                  <div key={exp.id} className="relative flex gap-6 pb-12 last:pb-0 group">
+                    {/* Enhanced Timeline line */}
                     {index !== experience.length - 1 && (
-                      <div className="absolute left-3 top-8 bottom-0 w-0.5 bg-blue-400/50"></div>
+                      <div className="absolute left-3 top-8 bottom-0 w-0.5 bg-gradient-to-b from-cyan-400/60 via-blue-400/40 to-cyan-400/60 shadow-sm shadow-cyan-400/20"></div>
                     )}
                     
-                    {/* Timeline dot (without numbers) */}
-                    <div className="w-6 h-6 rounded-full bg-blue-400 flex-shrink-0 mt-3 shadow-lg"></div>
+                    {/* Enhanced Timeline dot */}
+                    <div className="relative w-6 h-6 rounded-full bg-gradient-to-br from-cyan-400 to-blue-500 flex-shrink-0 mt-3 shadow-lg shadow-cyan-400/30 group-hover:shadow-xl group-hover:shadow-cyan-400/40 transition-all duration-500">
+                      <div className="absolute inset-0.5 bg-gradient-to-br from-cyan-300 to-blue-400 rounded-full"></div>
+                      <div className="absolute inset-1 bg-gradient-to-br from-white/20 to-transparent rounded-full"></div>
+                    </div>
                     
-                    {/* Content */}
-                    <div className="flex-1">
-                      <div className="flex flex-col md:flex-row justify-between items-start mb-3">
-                        <div>
-                          <h4 className="text-xl font-semibold text-white">{exp.position}</h4>
-                          <p className="text-lg text-blue-400 font-medium">{exp.company}</p>
+                    {/* Enhanced Content */}
+                    <div className="flex-1 group-hover:translate-x-1 transition-transform duration-300">
+                      <div className="flex flex-col lg:flex-row justify-between items-start mb-4 gap-2">
+                        <div className="flex-1">
+                          <h4 className="text-xl md:text-2xl font-bold text-white exo2-bold mb-1 group-hover:text-cyan-100 transition-colors duration-300">
+                            {exp.position}
+                          </h4>
+                          <p className="text-lg md:text-xl text-cyan-400 exo2-semibold font-medium group-hover:text-cyan-300 transition-colors duration-300">
+                            {exp.company}
+                          </p>
+                          <p className="text-sm md:text-base text-gray-400 exo2-light mt-1 flex items-center group-hover:text-gray-300 transition-colors duration-300">
+                            <svg className="w-4 h-4 mr-2 text-cyan-500/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                            {exp.location}
+                          </p>
                         </div>
-                        <span className="text-gray-300 mt-1 md:mt-0 font-medium">
+                        <span className="text-gray-300 exo2-medium font-medium text-sm md:text-base px-3 py-1 bg-white/5 rounded-full border border-white/10 backdrop-blur-sm group-hover:bg-white/10 transition-all duration-300">
                           {exp.startDate} - {exp.endDate}
                         </span>
                       </div>
                       
-                      <ul className="list-disc list-inside space-y-2 mb-4 text-gray-300">
+                      {/* Enhanced Description */}
+                      <ul className="list-none space-y-3">
                         {exp.description.map((item, descIndex) => (
-                          <li key={descIndex}>{item}</li>
+                          <li key={descIndex} className="relative pl-6 text-gray-200 exo2-regular leading-relaxed group-hover:text-gray-100 transition-colors duration-300">
+                            <div className="absolute left-0 top-2 w-2 h-2 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-full opacity-60"></div>
+                            <span className="text-sm md:text-base">{item}</span>
+                          </li>
                         ))}
                       </ul>
-                      
-                      {exp.techStack && (
-                        <div className="flex flex-wrap gap-2">
-                          {exp.techStack.map((tech) => (
-                            <span
-                              key={tech}
-                              className="px-3 py-1 bg-gray-700/50 text-gray-300 rounded-full text-sm border border-gray-600 hover:bg-gray-600/50 transition-colors"
-                            >
-                              {tech}
-                            </span>
-                          ))}
-                        </div>
-                      )}
                     </div>
                   </div>
                 ))}
               </div>
-            </Card>
+              
+              {/* Bottom highlight */}
+              <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyan-400/30 to-transparent"></div>
+            </div>
           </div>
         </div>
       </div>
