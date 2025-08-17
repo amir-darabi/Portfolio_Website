@@ -14,9 +14,9 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-black/60 backdrop-blur-sm text-white py-6 border-t border-white/10 shadow-2xl shadow-black/50" style={{ overscrollBehavior: 'none' }}>
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between space-x-4" >
+    <footer className="bg-black/60 backdrop-blur-sm text-white py-4 border-t border-white/10 shadow-2xl shadow-black/50" style={{ overscrollBehavior: 'none' }}>
+      <div className="container mx-auto px-3">
+        <div className="flex items-center justify-center space-x-4 relative" >
           <p className="text-gray-300 rajdhani-medium text-sm md:text-base">
             © {currentYear} {personalInfo.name}. All rights reserved.
           </p>
@@ -24,7 +24,7 @@ const Footer = () => {
             onClick={scrollToTop}
             variant="secondary"
             size="sm"
-            className="flex-shrink-0"
+            className="flex-shrink-0 absolute right-0 opacity-60 hover:opacity-100 transition-opacity duration-300"
             aria-label="Back to top"
           >
             <svg
