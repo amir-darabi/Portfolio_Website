@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { skills, experience } from '@/lib/data';
 import Card from '@/components/ui/Card';
 import { TechIconRenderer, ProcessorIcon, ClockIcon, HeartIcon } from '@/components/icons';
@@ -8,6 +8,49 @@ import '../../styles/fonts.css';
 
 const About = () => {
   const [activeTab, setActiveTab] = useState('Web Development');
+  const [isStatsVisible, setIsStatsVisible] = useState(false);
+  const [isTechStackVisible, setIsTechStackVisible] = useState(false);
+  const [isExperienceVisible, setIsExperienceVisible] = useState(false);
+  
+  const statsRef = useRef<HTMLDivElement>(null);
+  const techStackRef = useRef<HTMLDivElement>(null);
+  const experienceRef = useRef<HTMLDivElement>(null);
+  
+  useEffect(() => {
+    const observerOptions = {
+      threshold: 0.2,
+      rootMargin: '-50px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          if (entry.target === statsRef.current) {
+            setIsStatsVisible(true);
+          } else if (entry.target === techStackRef.current) {
+            setIsTechStackVisible(true);
+          } else if (entry.target === experienceRef.current) {
+            setIsExperienceVisible(true);
+          }
+        }
+      });
+    }, observerOptions);
+
+    // Store current refs
+    const currentStatsRef = statsRef.current;
+    const currentTechStackRef = techStackRef.current;
+    const currentExperienceRef = experienceRef.current;
+
+    if (currentStatsRef) observer.observe(currentStatsRef);
+    if (currentTechStackRef) observer.observe(currentTechStackRef);
+    if (currentExperienceRef) observer.observe(currentExperienceRef);
+
+    return () => {
+      if (currentStatsRef) observer.unobserve(currentStatsRef);
+      if (currentTechStackRef) observer.unobserve(currentTechStackRef);
+      if (currentExperienceRef) observer.unobserve(currentExperienceRef);
+    };
+  }, []);
   
   const skillsByCategory = skills.reduce((acc, skill) => {
     if (!acc[skill.category]) {
@@ -44,9 +87,24 @@ const About = () => {
           </div>
 
           {/* Stats Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+          <div 
+            ref={statsRef}
+            className={`grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 transition-all duration-1000 ease-out ${
+              isStatsVisible 
+                ? 'opacity-100 translate-y-0' 
+                : 'opacity-0 translate-y-10'
+            }`}
+          >
             {/* Technologies Card */}
-            <Card className="p-6 text-center bg-gradient-to-br from-blue-600/10 to-purple-600/10 border border-blue-400/30 shadow-lg shadow-blue-500/20 hover:shadow-xl hover:scale-102 group" hover={true}>
+            <div 
+              className={`transition-all duration-700 ease-out ${
+                isStatsVisible 
+                  ? 'opacity-100 translate-y-0' 
+                  : 'opacity-0 translate-y-8'
+              }`}
+              style={{ transitionDelay: isStatsVisible ? '100ms' : '0ms' }}
+            >
+              <Card className="p-6 text-center bg-gradient-to-br from-blue-600/10 to-purple-600/10 border border-blue-400/30 shadow-lg shadow-blue-500/20 hover:shadow-xl hover:scale-102 group" hover={true}>
               <div className="flex flex-col items-center">
                 {/* Icon */}
                 <div className="w-12 h-12 mb-3 bg-gradient-to-br from-blue-500/80 to-purple-500/80 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
@@ -60,9 +118,18 @@ const About = () => {
                 <div className="text-gray-300 goldman-regular group-hover:text-white transition-colors duration-300 mt-1">Technologies</div>
               </div>
             </Card>
+            </div>
             
             {/* Experience Card - Changed to Blue Theme */}
-            <Card className="p-6 text-center bg-gradient-to-br from-cyan-600/10 to-cyan-800/10 border border-blue-400/30 shadow-lg shadow-blue-500/20 hover:shadow-xl hover:scale-102 group" hover={true}>
+            <div 
+              className={`transition-all duration-700 ease-out ${
+                isStatsVisible 
+                  ? 'opacity-100 translate-y-0' 
+                  : 'opacity-0 translate-y-8'
+              }`}
+              style={{ transitionDelay: isStatsVisible ? '200ms' : '0ms' }}
+            >
+              <Card className="p-6 text-center bg-gradient-to-br from-cyan-600/10 to-cyan-800/10 border border-blue-400/30 shadow-lg shadow-blue-500/20 hover:shadow-xl hover:scale-102 group" hover={true}>
               <div className="flex flex-col items-center">
                 {/* Icon */}
                 <div className="w-12 h-12 mb-3 bg-gradient-to-br from-cyan-500/80 to-cyan-700/80 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
@@ -76,9 +143,18 @@ const About = () => {
                 <div className="text-gray-300 goldman-regular group-hover:text-white transition-colors duration-300 mt-1">Years Experience</div>
               </div>
             </Card>
+            </div>
             
             {/* Passion Card */}
-            <Card className="p-6 text-center bg-gradient-to-br from-purple-600/10 to-pink-600/10 border border-purple-400/30 shadow-lg shadow-purple-500/20 hover:shadow-xl hover:scale-102 group" hover={true}>
+            <div 
+              className={`transition-all duration-700 ease-out ${
+                isStatsVisible 
+                  ? 'opacity-100 translate-y-0' 
+                  : 'opacity-0 translate-y-8'
+              }`}
+              style={{ transitionDelay: isStatsVisible ? '300ms' : '0ms' }}
+            >
+              <Card className="p-6 text-center bg-gradient-to-br from-purple-600/10 to-pink-600/10 border border-purple-400/30 shadow-lg shadow-purple-500/20 hover:shadow-xl hover:scale-102 group" hover={true}>
               <div className="flex flex-col items-center">
                 {/* Icon */}
                 <div className="w-12 h-12 mb-3 bg-gradient-to-br from-purple-500/80 to-pink-500/80 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
@@ -92,6 +168,7 @@ const About = () => {
                 <div className="text-gray-300 goldman-regular group-hover:text-white transition-colors duration-300 mt-0">Passion for Code</div>
               </div>
             </Card>
+            </div>
           </div>
 
           {/* Tech Stack - Tabbed Interface */}
@@ -141,7 +218,14 @@ const About = () => {
             </div>
 
             {/* Tab Content */}
-            <div className="min-h-[300px] sm:min-h-[350px] md:min-h-[400px] px-2 sm:px-4 md:px-0">
+            <div 
+              ref={techStackRef}
+              className={`min-h-[300px] sm:min-h-[350px] md:min-h-[400px] px-2 sm:px-4 md:px-0 transition-all duration-1000 ease-out ${
+                isTechStackVisible 
+                  ? 'opacity-100 translate-y-0' 
+                  : 'opacity-0 translate-y-10'
+              }`}
+            >
               {skillsByCategory[activeTab] && (
                 <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 gap-2 sm:gap-3 md:gap-4 lg:gap-5 animate-fadeIn justify-items-center">
                   {skillsByCategory[activeTab].map((skill, index) => (
@@ -198,7 +282,14 @@ const About = () => {
             </h3>
             
             {/* Super Glassy Container */}
-            <div className="relative p-8 bg-gradient-to-br from-white/5 via-white/2 to-transparent backdrop-blur-2xl border border-white/10 rounded-3xl shadow-2xl shadow-black/30 hover:shadow-cyan-500/10 transition-all duration-700 overflow-hidden">
+            <div 
+              ref={experienceRef}
+              className={`relative p-8 bg-gradient-to-br from-white/5 via-white/2 to-transparent backdrop-blur-2xl border border-white/10 rounded-3xl shadow-2xl shadow-black/30 hover:shadow-cyan-500/10 transition-all duration-1000 overflow-hidden ${
+                isExperienceVisible 
+                  ? 'opacity-100 translate-y-0' 
+                  : 'opacity-0 translate-y-10'
+              }`}
+            >
               
               {/* Multiple Glass Layers for Enhanced Effect */}
               <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/3 via-blue-500/2 to-purple-500/3 rounded-3xl"></div>
@@ -207,7 +298,15 @@ const About = () => {
               
               <div className="relative z-10">
                 {experience.map((exp, index) => (
-                  <div key={exp.id} className="relative flex gap-6 pb-12 last:pb-0 group">
+                  <div 
+                    key={exp.id} 
+                    className={`relative flex gap-6 pb-12 last:pb-0 group transition-all duration-700 ease-out ${
+                      isExperienceVisible 
+                        ? 'opacity-100 translate-x-0' 
+                        : 'opacity-0 -translate-x-8'
+                    }`}
+                    style={{ transitionDelay: isExperienceVisible ? `${(index + 1) * 200}ms` : '0ms' }}
+                  >
                     {/* Enhanced Timeline line */}
                     {index !== experience.length - 1 && (
                       <div className="absolute left-3 top-8 bottom-0 w-0.5 bg-gradient-to-b from-cyan-400/60 via-blue-400/40 to-cyan-400/60 shadow-sm shadow-cyan-400/20"></div>
