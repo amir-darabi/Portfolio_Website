@@ -52,8 +52,7 @@ const Contact = () => {
               </h2>
               <div className="flex-1 h-px bg-gradient-to-l from-transparent via-blue-500/50 to-blue-500/80 max-w-32"></div>
             </div>
-            <p className="text-lg text-gray-300 rajdhani-regular  max-w-2xl mx-auto">
-              I&apos;m always interested in new opportunities and interesting projects. 
+            <p className="text-lg text-gray-300 exo2-regular  max-w-2xl mx-auto">
               Let&apos;s discuss how we can work together!
             </p>
           </div>

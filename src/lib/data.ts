@@ -54,7 +54,6 @@ export const skills: Skill[] = [
   { name: "GitHub", category: "Development Tools", level: "Advanced" },
   { name: "Vercel", category: "Development Tools", level: "Advanced" },
   { name: "Docker", category: "Development Tools", level: "Intermediate" },
-  { name: "CI/CD", category: "Development Tools", level: "Intermediate" },
   { name: "Postman", category: "Development Tools", level: "Intermediate" },
 ];
 

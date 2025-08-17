@@ -38,7 +38,7 @@ const Projects = () => {
               </h2>
               <div className="flex-1 h-px bg-gradient-to-l from-transparent via-blue-500/50 to-blue-500/80 max-w-32"></div>
             </div>
-            <p className="text-lg text-gray-300 rajdhani-regular  max-w-2xl mx-auto">
+            <p className="text-lg text-gray-300 exo2-regular max-w-2xl mx-auto">
               Here are some of the projects I&apos;ve worked on. Each project represents 
               a unique challenge and learning experience.
             </p>

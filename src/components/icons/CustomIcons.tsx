@@ -5,7 +5,7 @@ interface IconProps {
 }
 
 // Technologies/Processor Icon
-export const ProcessorIcon: React.FC<IconProps> = ({ className = "w-6 h-6" }) => (
+export const ProcessorIcon = ({ className = "w-6 h-6" }: IconProps) => (
   <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
     <path 
       strokeLinecap="round" 
@@ -17,7 +17,7 @@ export const ProcessorIcon: React.FC<IconProps> = ({ className = "w-6 h-6" }) =>
 );
 
 // Experience/Clock Icon
-export const ClockIcon: React.FC<IconProps> = ({ className = "w-6 h-6" }) => (
+export const ClockIcon = ({ className = "w-6 h-6" }: IconProps) => (
   <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
     <path 
       strokeLinecap="round" 
@@ -29,7 +29,7 @@ export const ClockIcon: React.FC<IconProps> = ({ className = "w-6 h-6" }) => (
 );
 
 // Passion/Heart Icon
-export const HeartIcon: React.FC<IconProps> = ({ className = "w-6 h-6" }) => (
+export const HeartIcon = ({ className = "w-6 h-6" }: IconProps) => (
   <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
     <path 
       strokeLinecap="round" 
@@ -40,19 +40,14 @@ export const HeartIcon: React.FC<IconProps> = ({ className = "w-6 h-6" }) => (
   </svg>
 );
 
-// Generic Tech Stack Icon
-export const TechIcon: React.FC<IconProps> = ({ className = "w-4 h-4" }) => (
-  <svg className={className} fill="currentColor" viewBox="0 0 24 24">
-    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+// Generic Tech Icon (fallback for unmapped technologies)
+export const TechIcon = ({ className = "w-6 h-6" }: IconProps) => (
+  <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path 
+      strokeLinecap="round" 
+      strokeLinejoin="round" 
+      strokeWidth={2} 
+      d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" 
+    />
   </svg>
 );
-
-// Export all icons as a collection for easy importing
-export const Icons = {
-  Processor: ProcessorIcon,
-  Clock: ClockIcon,
-  Heart: HeartIcon,
-  Tech: TechIcon,
-};
-
-export default Icons;

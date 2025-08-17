@@ -1,8 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap');
 
@@ -19,17 +17,6 @@
   font-style: normal;
 }
 
-/* Space Mono - Monospace, tech aesthetic */
-.space-mono-regular {
-  font-family: "Space Mono", monospace;
-  font-weight: 400;
-}
-
-.space-mono-bold {
-  font-family: "Space Mono", monospace;
-  font-weight: 700;
-}
- 
 /* Exo 2 - Futuristic, readable */
 .exo2-light {
   font-family: "Exo 2", sans-serif;

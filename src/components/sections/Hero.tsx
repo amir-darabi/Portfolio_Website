@@ -126,13 +126,13 @@ const Home = () => {
                       <span className="text-xl md:text-2xl text-blue-800 font-light goldman-regular">
                         {text}
                       </span>
-                      <span className="w-[3px] h-6 bg-gradient-to-t from-[#6366f1] to-[#a855f7] ml-1 animate-blink"></span>
+                      <span className="w-[3px] h-6 bg-gradient-to-t from-cyan-600 to-blue-500 ml-1 animate-blink"></span>
                     </div>
                   </div>
                 </div>
 
                 <p
-                  className="text-lg md:text-xl text-gray-300  space-mono-regular max-w-2xl mx-auto leading-relaxed animate-fade-in-up"
+                  className="text-lg md:text-xl text-gray-300 exo2-regular max-w-2xl mx-auto leading-relaxed animate-fade-in-up"
                   style={{ animationDelay: '0.8s' }}
                 >
                   {personalInfo.bio}
