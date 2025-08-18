@@ -1,9 +1,36 @@
 'use client';
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 const AnimatedBackground = () => {
 	const blobRefs = useRef<(HTMLDivElement | null)[]>([]);
+	const [stars, setStars] = useState<Array<{
+		id: number;
+		left: number;
+		top: number;
+		size: number;
+		opacity: number;
+		twinkleDelay: number;
+		pulseDuration: number;
+	}>>([]);
+
+	// Generate random star positions
+	const generateStars = (count: number) => {
+		return Array.from({ length: count }, (_, index) => ({
+			id: index,
+			left: Math.random() * 100,
+			top: Math.random() * 100,
+			size: Math.random() * 2.5 + 1, // 1-3.5px
+			opacity: Math.random() * 0.6 + 0.4, // 0.4-1.0
+			twinkleDelay: Math.random() * 5, // 0-5s delay
+			pulseDuration: Math.random() * 3 + 2, // 2-5s duration
+		}));
+	};
+
+	// Generate stars only on client side to avoid hydration mismatch
+	useEffect(() => {
+		setStars(generateStars(50));
+	}, []);
 
 	useEffect(() => {
 		const initialPositions = [
@@ -50,6 +77,29 @@ const AnimatedBackground = () => {
 	return (
 		<div className="fixed inset-0 bg-gradient-to-br from-black to-slate-800 -z-10 overflow-hidden">
 			<div className="absolute inset-0 overflow-hidden">
+				{/* Stars */}
+				{stars.map((star) => (
+					<div
+						key={star.id}
+						className="absolute rounded-full"
+						style={{
+							left: `${star.left}%`,
+							top: `${star.top}%`,
+							width: `${star.size}px`,
+							height: `${star.size}px`,
+							background: 'radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0.3) 100%)',
+							animation: `starPulse ${star.pulseDuration}s ease-in-out infinite`,
+							animationDelay: `${star.twinkleDelay}s`,
+							opacity: star.opacity,
+							boxShadow: `
+								0 0 ${star.size * 1.5}px rgba(255, 255, 255, 0.6),
+								0 0 ${star.size * 3}px rgba(255, 255, 255, 0.3),
+								0 0 ${star.size * 5}px rgba(255, 255, 255, 0.1)
+							`,
+						}}
+					></div>
+				))}
+
 				{/* Professional animated blobs */}
 				<div
 					ref={(ref) => { blobRefs.current[0] = ref; }}
@@ -72,10 +122,31 @@ const AnimatedBackground = () => {
 					style={{ transform: 'translate(0%, 25%)' }}
 				></div>
 			</div>
-			{/* Professional grid pattern */}
-			<div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:32px_32px] opacity-40"></div>
+			
 			{/* Subtle professional overlay */}
 			<div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent"></div>
+
+			{/* CSS Animation for Star Pulse */}
+			<style jsx>{`
+				@keyframes starPulse {
+					0%, 100% {
+						transform: scale(1);
+						opacity: 0.4;
+					}
+					25% {
+						transform: scale(1.2);
+						opacity: 0.8;
+					}
+					50% {
+						transform: scale(1.4);
+						opacity: 1;
+					}
+					75% {
+						transform: scale(1.2);
+						opacity: 0.8;
+					}
+				}
+			`}</style>
 		</div>
 	);
 };
