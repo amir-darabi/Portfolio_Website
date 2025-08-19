@@ -42,9 +42,8 @@ const Home = () => {
 
   // Download resume function
   const downloadResume = () => {
-    // Create a link to download the resume
     const link = document.createElement('a');
-    link.href = '/resume.md'; // Path to your resume file in public folder
+    link.href = '/resume.pdf'; // Path to your resume file in public folder
     link.download = 'Amir_Darabi_Resume.pdf';
     document.body.appendChild(link);
     link.click();

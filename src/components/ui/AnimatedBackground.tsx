@@ -29,7 +29,7 @@ const AnimatedBackground = () => {
 
 	// Generate stars only on client side to avoid hydration mismatch
 	useEffect(() => {
-		setStars(generateStars(50));
+		setStars(generateStars(75));
 	}, []);
 
 	useEffect(() => {
@@ -122,7 +122,7 @@ const AnimatedBackground = () => {
 					style={{ transform: 'translate(0%, 25%)' }}
 				></div>
 			</div>
-			
+
 			{/* Subtle professional overlay */}
 			<div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent"></div>
 

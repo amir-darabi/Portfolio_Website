@@ -103,36 +103,37 @@ export const experience: Experience[] = [
 // Projects
 export const projects: Project[] = [
   {
-    id: "1",
-    title: "E-commerce Platform",
-    description: "A full-stack e-commerce platform with modern UI and secure payment integration.",
-    longDescription: "Built a comprehensive e-commerce solution featuring user authentication, product catalog, shopping cart, and secure payment processing using Stripe.",
-    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "MongoDB", "Stripe"],
-    imageUrl: "/images/projects/ecommerce.png",
-    demoUrl: "https://your-demo.com",
-    githubUrl: "https://github.com/yourusername/ecommerce",
+    id: "1", 
+    title: "Full-Stack Todo Application",
+    description: "A complete todo application with user authentication, CRUD operations, and database integration.",
+    longDescription: "Developed a comprehensive task management system with user registration, authentication, full CRUD operations, data persistence, task categories, priority levels, and real-time updates. Features both frontend and backend with database integration.",
+    techStack: ["React", "Node.js", "Express", "PostgreSQL", "JWT", "CSS3"],
+    imageUrl: "/images/projects/todo-preview.png",
+    demoUrl: "#", // Will add later
+    githubUrl: "#", // Will add later
     featured: true
   },
   {
     id: "2",
-    title: "Task Management App",
-    description: "A collaborative task management application with real-time updates.",
-    longDescription: "Developed a team collaboration tool with drag-and-drop functionality, real-time notifications, and project management features.",
-    techStack: ["React", "Node.js", "Socket.io", "PostgreSQL"],
-    imageUrl: "/images/projects/taskapp.png",
-    demoUrl: "https://your-demo.com",
-    githubUrl: "https://github.com/yourusername/taskapp",
+    title: "Frontend Dashboard",
+    description: "A comprehensive admin dashboard with analytics, user management, and data visualization.",
+    longDescription: "Built a modern admin dashboard featuring real-time analytics, user management system, interactive charts, and responsive design. Includes data filtering, export functionality, and role-based access controls.",
+    techStack: ["React", "TypeScript", "Tailwind CSS", "Chart.js", "CSS3"],
+    imageUrl: "/images/projects/dashboard-preview.png",
+    demoUrl: "#", // Will add later
+    githubUrl: "#", // Will add later
     featured: true
   },
   {
     id: "3",
-    title: "Weather Dashboard",
-    description: "A responsive weather application with location-based forecasts.",
-    longDescription: "Created a weather dashboard that provides current conditions and forecasts using external APIs with a clean, responsive interface.",
-    techStack: ["React", "JavaScript", "CSS3", "Weather API"],
-    imageUrl: "/images/projects/weather.png",
-    demoUrl: "https://your-demo.com",
-    githubUrl: "https://github.com/yourusername/weather",
-    featured: false
+    title: "Frontend Webshop",
+    description: "A modern e-commerce frontend with responsive design and shopping cart functionality.",
+    longDescription: "Built a complete frontend webshop with product catalog, shopping cart, user authentication UI, responsive design, product filtering, and checkout flow optimized for all devices.",
+    techStack: ["React", "Next.js", "TypeScript", "Tailwind CSS", "JavaScript"],
+    imageUrl: "/images/projects/webshop-preview.png",
+    demoUrl: "#", // Will add later
+    githubUrl: "#", // Will add later
+    featured: true
   }
+
 ];
