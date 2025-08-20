@@ -31,36 +31,38 @@ export const navigationLinks: NavigationLink[] = [
 // Skills
 export const skills: Skill[] = [
   // Web Development
-  { name: "JavaScript", category: "Web Development", level: "Advanced" },
-  { name: "TypeScript", category: "Web Development", level: "Advanced" },
-  { name: "React", category: "Web Development", level: "Advanced" },
-  { name: "Next.js", category: "Web Development", level: "Advanced" },
-  { name: "HTML", category: "Web Development", level: "Advanced" },
-  { name: "CSS", category: "Web Development", level: "Advanced" },
-  { name: "SCSS", category: "Web Development", level: "Intermediate" },
-  { name: "Tailwind CSS", category: "Web Development", level: "Advanced" },
-  { name: "Figma", category: "Web Development", level: "Advanced" },
+  { name: "JavaScript", category: "Web Development" },
+  { name: "TypeScript", category: "Web Development" },
+  { name: "React", category: "Web Development" },
+  { name: "Next.js", category: "Web Development" },
+  { name: "HTML", category: "Web Development" },
+  { name: "CSS", category: "Web Development" },
+  { name: "SCSS", category: "Web Development" },
+  { name: "Tailwind CSS", category: "Web Development" },
+  { name: "Figma", category: "Web Development" },
+  { name: "Chakra UI", category: "Web Development" },
+
 
   // Programming
-  { name: "Python", category: "Programming", level: "Advanced" },
-  { name: "Java", category: "Programming", level: "Intermediate" },
-  { name: "C", category: "Programming", level: "Intermediate" },
-  { name: "C++", category: "Programming", level: "Intermediate" },
-  { name: "Scala", category: "Programming", level: "Intermediate" },
-  { name: "R", category: "Programming", level: "Intermediate" },
+  { name: "Python", category: "Programming" },
+  { name: "Java", category: "Programming" },
+  { name: "C", category: "Programming" },
+  { name: "C++", category: "Programming" },
+  { name: "Scala", category: "Programming" },
+  { name: "R", category: "Programming" },
 
   // Data & Backend
-  { name: "SQL", category: "Data & Backend", level: "Advanced" },
-  { name: "Django", category: "Data & Backend", level: "Advanced" },
-  { name: "NodeJS", category: "Data & Backend", level: "Intermediate" },
-  { name: "Firebase", category: "Data & Backend", level: "Intermediate" },
+  { name: "SQL", category: "Data & Backend" },
+  { name: "Django", category: "Data & Backend" },
+  { name: "NodeJS", category: "Data & Backend" },
+  { name: "Firebase", category: "Data & Backend" },
 
   // Development Tools
-  { name: "Git", category: "Development Tools", level: "Advanced" },
-  { name: "GitHub", category: "Development Tools", level: "Advanced" },
-  { name: "Vercel", category: "Development Tools", level: "Advanced" },
-  { name: "Docker", category: "Development Tools", level: "Intermediate" },
-  { name: "Postman", category: "Development Tools", level: "Intermediate" },
+  { name: "Git", category: "Development Tools" },
+  { name: "GitHub", category: "Development Tools" },
+  { name: "Vercel", category: "Development Tools" },
+  { name: "Docker", category: "Development Tools" },
+  { name: "Postman", category: "Development Tools" },
 ];
 
 // Experience

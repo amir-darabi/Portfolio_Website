@@ -16,7 +16,7 @@ import {
   CplusplusOriginal,
   ScalaOriginal,
   ROriginal,
-  SqliteOriginal,
+  AzuresqldatabasePlain,
   DjangoPlain,
   NodejsOriginal,
   FirebaseOriginal,
@@ -24,7 +24,8 @@ import {
   GithubOriginal,
   VercelOriginal,
   DockerOriginal,
-  PostmanOriginal
+  PostmanOriginal,
+  ChakrauiOriginal,
 } from 'devicons-react';
 import { TechIcon } from './CustomIcons';
 
@@ -42,6 +43,7 @@ const skillIconMap: Record<string, IconComponent> = {
   'SCSS': SassOriginal,
   'Tailwind CSS': TailwindcssOriginal,
   'Figma': FigmaOriginal,
+  'Chakra UI': ChakrauiOriginal,
   
   // Programming
   'Python': PythonOriginal,
@@ -52,7 +54,7 @@ const skillIconMap: Record<string, IconComponent> = {
   'R': ROriginal,
   
   // Data & Backend
-  'SQL': SqliteOriginal,
+  'SQL':   AzuresqldatabasePlain,
   'Django': DjangoPlain,
   'NodeJS': NodejsOriginal,
   'Firebase': FirebaseOriginal,
