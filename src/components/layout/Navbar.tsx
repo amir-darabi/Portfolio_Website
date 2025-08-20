@@ -189,7 +189,7 @@ const Header = () => {
 
   return (
     <>
-      {/* Desktop Navigation - Vertical Left Sidebar */}
+      {/* Desktop Navigation - Vertical Left Sidebar - Glassy Design */}
       <nav 
         className={`hidden md:block fixed left-4 top-1/2 transform -translate-y-1/2 z-50 transition-all duration-500 ease-in-out ${
           showDesktopNav 
@@ -205,12 +205,15 @@ const Header = () => {
           }, 2000);
         }}
       >
-        <div className={`rounded-2xl transition-all duration-500 p-4 ${
-          scrolled
-            ? "bg-[#030014]/80 backdrop-blur-sm border border-blue-500/10 shadow-lg"
-            : "bg-[#030014]/20 backdrop-blur-sm border border-white/10"
-        }`}>
-          <div className="flex flex-col space-y-6">
+        {/* Super Glassy Container */}
+        <div className="relative p-4 bg-gradient-to-br from-white/5 via-white/2 to-transparent backdrop-blur-2xl border border-white/10 rounded-3xl shadow-2xl shadow-black/30 hover:shadow-cyan-500/10 transition-all duration-1000 overflow-hidden">
+          
+          {/* Multiple Glass Layers for Enhanced Effect */}
+          <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/3 via-blue-500/2 to-purple-500/3 rounded-3xl"></div>
+          <div className="absolute inset-0 bg-gradient-to-tr from-white/5 via-transparent to-white/2 rounded-3xl"></div>
+          <div className="absolute top-0 left-0 w-full h-1/3 bg-gradient-to-b from-white/10 via-white/5 to-transparent rounded-t-3xl"></div>
+          
+          <div className="relative z-10 flex flex-col space-y-6">
             {/* Logo */}
             <button
               onClick={(e) => scrollToSection(e, "#home", "home")}
@@ -243,93 +246,100 @@ const Header = () => {
               </button>
             ))}
           </div>
+          
+          {/* Bottom highlight */}
+          <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyan-400/30 to-transparent"></div>
         </div>
       </nav>
 
-      {/* Mobile Navigation - Full Width */}
+      {/* Mobile Navigation - Full Width - Glassy Design */}
       <nav className="md:hidden fixed w-full top-0 z-50 transition-all duration-500">
-        <div 
-          className={`w-full transition-all duration-500 ${
-            isOpen
-              ? "bg-[#030014] border-b border-blue-500/20"
-              : scrolled
-              ? "bg-[#030014]/80 backdrop-blur-xl border-b border-blue-500/10 shadow-lg"
-              : "bg-[#030014]/20 backdrop-blur-md border-b border-white/10"
-          }`}
-        >
-          <div className="flex items-center justify-between h-16 px-6">
-            {/* Logo */}
-            <div className="flex-shrink-0">
+        {/* Super Glassy Container */}
+        <div className="relative bg-gradient-to-br from-white/5 via-white/2 to-transparent backdrop-blur-2xl border-b border-white/10 shadow-2xl shadow-black/30 overflow-hidden">
+          
+          {/* Multiple Glass Layers for Enhanced Effect */}
+          <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/3 via-blue-500/2 to-purple-500/3"></div>
+          <div className="absolute inset-0 bg-gradient-to-tr from-white/5 via-transparent to-white/2"></div>
+          <div className="absolute top-0 left-0 w-full h-1/3 bg-gradient-to-b from-white/10 via-white/5 to-transparent"></div>
+          
+          <div className="relative z-10">
+            <div className="flex items-center justify-between h-16 px-6">
+              {/* Logo */}
+              <div className="flex-shrink-0">
+                <button
+                  onClick={(e) => scrollToSection(e, "#home", "home")}
+                  className="text-xl font-bold bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent"
+                  style={{ fontFamily: 'var(--font-goldman)' }}
+                >
+                  {personalInfo.name}
+                </button>
+              </div>
+
+              {/* Mobile Menu Button */}
               <button
-                onClick={(e) => scrollToSection(e, "#home", "home")}
-                className="text-xl font-bold bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent"
-                style={{ fontFamily: 'var(--font-goldman)' }}
+                onClick={() => setIsOpen(!isOpen)}
+                className={`relative p-2 text-gray-300 hover:text-white transition-transform duration-300 ease-in-out transform focus:outline-none ${
+                  isOpen ? "rotate-90 scale-125" : "rotate-0 scale-100"
+                }`}
               >
-                {personalInfo.name}
+                {isOpen ? (
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                ) : (
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                  </svg>
+                )}
               </button>
             </div>
 
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className={`relative p-2 text-gray-300 hover:text-white transition-transform duration-300 ease-in-out transform focus:outline-none ${
-                isOpen ? "rotate-90 scale-125" : "rotate-0 scale-100"
+            {/* Mobile Menu */}
+            <div
+              className={`transition-all duration-300 ease-in-out ${
+                isOpen
+                  ? "max-h-screen opacity-100"
+                  : "max-h-0 opacity-0 overflow-hidden"
               }`}
             >
-              {isOpen ? (
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              ) : (
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-              )}
-            </button>
-          </div>
-
-          {/* Mobile Menu */}
-          <div
-            className={`transition-all duration-300 ease-in-out ${
-              isOpen
-                ? "max-h-screen opacity-100"
-                : "max-h-0 opacity-0 overflow-hidden"
-            }`}
-          >
-            <div className="px-4 py-6 space-y-4">
-              {navigationLinks.map((item, index) => (
-                <button
-                  key={item.id}
-                  onClick={(e) => scrollToSection(e, item.href, item.id)}
-                  className={`flex items-center gap-4 w-full text-left px-4 py-3 text-lg font-medium transition-all duration-300 ease rounded-xl ${
-                    activeSection === item.id
-                      ? "bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-white"
-                      : "text-gray-300 hover:text-white hover:bg-white/5"
-                  }`}
-                  style={{
-                    transitionDelay: `${index * 100}ms`,
-                    transform: isOpen ? "translateX(0)" : "translateX(50px)",
-                    opacity: isOpen ? 1 : 0,
-                  }}
-                >
-                  <div className={`${
-                    activeSection === item.id 
-                      ? "text-blue-400" 
-                      : "text-gray-400"
-                  }`}>
-                    {getNavIcon(item.id)}
-                  </div>
-                  <span className={`${
-                    activeSection === item.id
-                      ? "bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent font-semibold"
-                      : ""
-                  }`}>
-                    {item.label}
-                  </span>
-                </button>
-              ))}
+              <div className="px-4 py-6 space-y-4">
+                {navigationLinks.map((item, index) => (
+                  <button
+                    key={item.id}
+                    onClick={(e) => scrollToSection(e, item.href, item.id)}
+                    className={`flex items-center gap-4 w-full text-left px-4 py-3 text-lg font-medium transition-all duration-300 ease rounded-xl ${
+                      activeSection === item.id
+                        ? "bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-white"
+                        : "text-gray-300 hover:text-white hover:bg-white/5"
+                    }`}
+                    style={{
+                      transitionDelay: `${index * 100}ms`,
+                      transform: isOpen ? "translateX(0)" : "translateX(50px)",
+                      opacity: isOpen ? 1 : 0,
+                    }}
+                  >
+                    <div className={`${
+                      activeSection === item.id 
+                        ? "text-blue-400" 
+                        : "text-gray-400"
+                    }`}>
+                      {getNavIcon(item.id)}
+                    </div>
+                    <span className={`${
+                      activeSection === item.id
+                        ? "bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent font-semibold"
+                        : ""
+                    }`}>
+                      {item.label}
+                    </span>
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
+          
+          {/* Bottom highlight */}
+          <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyan-400/30 to-transparent"></div>
         </div>
       </nav>
     </>

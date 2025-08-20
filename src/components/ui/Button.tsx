@@ -23,7 +23,7 @@ const Button = ({
   className = '',
   type = 'button',
 }: ButtonProps) => {
-  const baseClasses = 'inline-flex items-center justify-center font-medium rounded-lg transition-all duration-300 focus:outline-none';
+  const baseClasses = 'inline-flex items-center justify-center font-medium rounded-xl transition-all duration-300 focus:outline-none';
   
   const variantClasses = {
     primary: 'bg-fuchsia-900/30 text-white shadow-lg shadow-fuchsia-800/50 exo2-regular transform transition-all hover:shadow-xl hover:-translate-y-0.5',

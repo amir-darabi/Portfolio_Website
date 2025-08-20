@@ -154,8 +154,8 @@ const About = () => {
               }`}
               style={{ transitionDelay: isStatsVisible ? '300ms' : '0ms' }}
             >
-              <Card className="p-6 text-center bg-gradient-to-br from-purple-600/10 to-pink-600/10 border border-purple-400/30 shadow-lg shadow-purple-500/20 hover:shadow-xl hover:scale-102 group" hover={true}>
-              <div className="flex flex-col items-center">
+              <Card className="p-6 text-center bg-gradient-to-br from-purple-600/10 to-pink-600/10 border border-purple-400/30  shadow-lg shadow-purple-500/20 hover:shadow-xl hover:scale-102 group" hover={true}>
+              <div className="flex flex-col items-center ">
                 {/* Icon */}
                 <div className="w-12 h-12 mb-3 bg-gradient-to-br from-purple-500/80 to-pink-500/80 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
                   <HeartIcon className="w-6 h-6 text-white" />
@@ -239,10 +239,13 @@ const About = () => {
                     >
                       {/* Glass-like container - Responsive square shaped */}
                       <div className="relative aspect-square p-2 sm:p-3 md:p-4 lg:p-5 bg-gradient-to-br from-white/10 via-white/5 to-transparent backdrop-blur-xl border border-white/20 rounded-lg sm:rounded-xl md:rounded-2xl shadow-lg shadow-black/20 hover:shadow-xl hover:shadow-cyan-500/10 transition-all duration-500 group-hover:scale-105 group-hover:border-cyan-400/40 text-center overflow-hidden flex flex-col justify-center">
-                        {/* Animated background gradient - match project card hover color */}
-                        <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-blue-600/10 to-purple-500/10 rounded-lg sm:rounded-xl md:rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        
+                        {/* Animated background gradient */}
+                        <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 via-blue-500/5 to-purple-500/5 rounded-lg sm:rounded-xl md:rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        
                         {/* Glass reflection effect */}
                         <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent rounded-xl md:rounded-2xl opacity-20"></div>
+                        
                         {/* Content container */}
                         <div className="relative z-10 flex flex-col items-center justify-center h-full">
                           {/* Tech Icon */}
@@ -253,13 +256,15 @@ const About = () => {
                               className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-cyan-400 group-hover:text-cyan-300 transition-colors duration-300"
                             />
                           </div>
+                          
                           {/* Tech Name with Exo-2 font */}
                           <span className="text-xs sm:text-sm font-medium text-gray-300 group-hover:text-white transition-all duration-300 exo2-regular tracking-wide group-hover:tracking-wider text-center leading-tight">
                             {skill.name}
                           </span>
                         </div>
-                        {/* Hover glow effect - match project card hover color */}
-                        <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500/20 via-blue-600/10 to-purple-500/10 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10"></div>
+                        
+                        {/* Hover glow effect */}
+                        <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500/20 via-blue-500/20 to-purple-500/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10"></div>
                       </div>
                     </div>
                   ))}

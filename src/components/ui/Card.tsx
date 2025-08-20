@@ -15,7 +15,7 @@ const Card = ({
   clickable = false,
   onClick,
 }: CardProps) => {
-  const baseClasses = 'bg-transparent rounded-lg shadow-md overflow-hidden';
+  const baseClasses = 'bg-transparent rounded-3xl shadow-md overflow-hidden';
   const hoverClasses = hover || clickable ? 'hover:shadow-lg transition-all duration-300' : '';
   const clickableClasses = clickable ? 'cursor-pointer' : '';
   
