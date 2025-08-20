@@ -1,4 +1,10 @@
-import { PersonalInfo, Project, Experience, Skill, NavigationLink } from '@/types';
+import {
+  PersonalInfo,
+  Project,
+  Experience,
+  Skill,
+  NavigationLink,
+} from "@/types";
 
 // Personal Information
 export const personalInfo: PersonalInfo = {
@@ -11,7 +17,7 @@ export const personalInfo: PersonalInfo = {
   socialLinks: {
     github: "https://github.com/amir-darabi",
     linkedin: "https://www.linkedin.com/in/amir-darabi-286632213",
-  }
+  },
 };
 
 // Navigation Links
@@ -34,7 +40,7 @@ export const skills: Skill[] = [
   { name: "SCSS", category: "Web Development", level: "Intermediate" },
   { name: "Tailwind CSS", category: "Web Development", level: "Advanced" },
   { name: "Figma", category: "Web Development", level: "Advanced" },
-  
+
   // Programming
   { name: "Python", category: "Programming", level: "Advanced" },
   { name: "Java", category: "Programming", level: "Intermediate" },
@@ -42,13 +48,13 @@ export const skills: Skill[] = [
   { name: "C++", category: "Programming", level: "Intermediate" },
   { name: "Scala", category: "Programming", level: "Intermediate" },
   { name: "R", category: "Programming", level: "Intermediate" },
-  
+
   // Data & Backend
   { name: "SQL", category: "Data & Backend", level: "Advanced" },
   { name: "Django", category: "Data & Backend", level: "Advanced" },
   { name: "NodeJS", category: "Data & Backend", level: "Intermediate" },
   { name: "Firebase", category: "Data & Backend", level: "Intermediate" },
-  
+
   // Development Tools
   { name: "Git", category: "Development Tools", level: "Advanced" },
   { name: "GitHub", category: "Development Tools", level: "Advanced" },
@@ -69,8 +75,8 @@ export const experience: Experience[] = [
     description: [
       "Built scalable frontend features using React, Typescript and ChakraUI, with Django powering the backend",
       "Improved user experience and design consistency through collaboration with developers",
-      "Participated in agile ceremonies and Git-based workflows"
-    ]
+      "Participated in agile ceremonies and Git-based workflows",
+    ],
   },
   {
     id: "2",
@@ -82,8 +88,8 @@ export const experience: Experience[] = [
     description: [
       "Conducted user and technical research to shape app features",
       "Collaborated with cross-functional teams to streamline development and boost adoption",
-      "Organized events to promote the app and engage stakeholders"
-    ]
+      "Organized events to promote the app and engage stakeholders",
+    ],
   },
   {
     id: "3",
@@ -95,45 +101,50 @@ export const experience: Experience[] = [
     description: [
       "Supported students in mastering DSA through direct guidance",
       "Assisted in course material preparation and practical sessions",
-      "Provided mentorship for algorithmic problem-solving techniques"
-    ]
-  }
+      "Provided mentorship for algorithmic problem-solving techniques",
+    ],
+  },
 ];
 
 // Projects
 export const projects: Project[] = [
   {
-    id: "1", 
+    id: "1",
     title: "Full-Stack Todo Application",
-    description: "A complete todo application with user authentication, CRUD operations, and database integration.",
-    longDescription: "Developed a comprehensive task management system with user registration, authentication, full CRUD operations, data persistence, task categories, priority levels, and real-time updates. Features both frontend and backend with database integration.",
-    techStack: ["React", "Node.js", "Express", "PostgreSQL", "JWT", "CSS3"],
+    description:
+      "A complete todo application with user authentication, CRUD operations, and database integration.",
+    longDescription:
+      "Developed a comprehensive task management system with user registration, authentication, full CRUD operations, data persistence, task categories, priority levels, and real-time updates. Features both frontend and backend with database integration.",
+    techStack: ["React", "Django", "SQLite", "Firebase", "JWT", "TanStack Query"],
     imageUrl: "/images/projects/todo-preview.png",
     demoUrl: "#", // Will add later
     githubUrl: "#", // Will add later
-    featured: true
+    featured: true,
   },
   {
     id: "2",
     title: "Frontend Dashboard",
-    description: "A comprehensive admin dashboard with analytics, user management, and data visualization.",
-    longDescription: "Built a modern admin dashboard featuring real-time analytics, user management system, interactive charts, and responsive design. Includes data filtering, export functionality, and role-based access controls.",
-    techStack: ["React", "TypeScript", "Tailwind CSS", "Chart.js", "CSS3"],
+    description:
+      "A comprehensive admin dashboard with analytics, user management, and data visualization.",
+    longDescription:
+      "Built a modern admin dashboard featuring real-time analytics, user management system, interactive charts, and responsive design. Includes data filtering, export functionality, and role-based access controls.",
+    techStack: ["React", "Node.js", "TypeScript", "JavaScript", "Chakra UI", "Vite"],
     imageUrl: "/images/projects/dashboard-preview.png",
     demoUrl: "#", // Will add later
     githubUrl: "#", // Will add later
-    featured: true
+    featured: true,
   },
   {
     id: "3",
     title: "Frontend Webshop",
-    description: "A modern e-commerce frontend with responsive design and shopping cart functionality.",
-    longDescription: "Built a complete frontend webshop with product catalog, shopping cart, user authentication UI, responsive design, product filtering, and checkout flow optimized for all devices.",
-    techStack: ["React", "Next.js", "TypeScript", "Tailwind CSS", "JavaScript"],
+    description:
+      "A responsive e-commerce frontend with dynamic product listings and Grid/List view modes.",
+    longDescription:
+      "Developed a modern webshop frontend showcasing products with both Grid and List view options. Designed with a clean and responsive UI to highlight products, provide detailed views, and deliver a smooth browsing experience across devices.",
+    techStack: ["React", "Node.js", "TypeScript", "JavaScript", "Tailwind CSS", "Vite"],
     imageUrl: "/images/projects/webshop-preview.png",
     demoUrl: "#", // Will add later
     githubUrl: "#", // Will add later
-    featured: true
-  }
-
+    featured: true,
+  },
 ];
