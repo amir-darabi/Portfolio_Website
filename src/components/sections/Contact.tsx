@@ -41,7 +41,7 @@ const validateInput = {
       /<object\b/gi,
       /<embed\b/gi
     ];
-    
+
     for (const pattern of suspiciousPatterns) {
       if (pattern.test(trimmed)) {
         return { isValid: false, error: 'Message contains invalid content' };
@@ -54,27 +54,27 @@ const validateInput = {
 // Simple rate limiting (in production, use server-side rate limiting)
 const rateLimiter = {
   attempts: new Map<string, { count: number; lastAttempt: number }>(),
-  
+
   canAttempt(identifier: string): boolean {
     const now = Date.now();
     const userAttempts = this.attempts.get(identifier);
-    
+
     if (!userAttempts) {
       this.attempts.set(identifier, { count: 1, lastAttempt: now });
       return true;
     }
-    
+
     // Reset counter if more than 5 minutes have passed
     if (now - userAttempts.lastAttempt > 5 * 60 * 1000) {
       this.attempts.set(identifier, { count: 1, lastAttempt: now });
       return true;
     }
-    
+
     // Allow max 3 attempts per 5 minutes
     if (userAttempts.count >= 3) {
       return false;
     }
-    
+
     userAttempts.count++;
     userAttempts.lastAttempt = now;
     return true;
@@ -108,15 +108,15 @@ const Contact = () => {
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-  
+
   // Animation states
   const [isContactInfoVisible, setIsContactInfoVisible] = useState(false);
   const [isContactFormVisible, setIsContactFormVisible] = useState(false);
-  
+
   // Refs for intersection observer
   const contactInfoRef = useRef<HTMLDivElement>(null);
   const contactFormRef = useRef<HTMLDivElement>(null);
-  
+
   useEffect(() => {
     const observerOptions = {
       threshold: 0.2,
@@ -150,12 +150,12 @@ const Contact = () => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    
+
     // Clear previous errors for this field
     if (errors[name as keyof FormErrors]) {
       setErrors(prev => ({ ...prev, [name]: undefined }));
     }
-    
+
     setFormData(prev => ({
       ...prev,
       [name]: value
@@ -164,22 +164,22 @@ const Contact = () => {
 
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {};
-    
+
     const nameValidation = validateInput.name(formData.name);
     if (!nameValidation.isValid) {
       newErrors.name = nameValidation.error;
     }
-    
+
     const emailValidation = validateInput.email(formData.email);
     if (!emailValidation.isValid) {
       newErrors.email = emailValidation.error;
     }
-    
+
     const messageValidation = validateInput.message(formData.message);
     if (!messageValidation.isValid) {
       newErrors.message = messageValidation.error;
     }
-    
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -188,19 +188,19 @@ const Contact = () => {
     e.preventDefault();
     setSubmitStatus('idle');
     setErrors({});
-    
+
     // Validate form
     if (!validateForm()) {
       return;
     }
-    
+
     // Rate limiting check
     const userIdentifier = formData.email; // In production, use IP or better identifier
     if (!rateLimiter.canAttempt(userIdentifier)) {
       setErrors({ general: 'Too many attempts. Please try again in 5 minutes.' });
       return;
     }
-    
+
     setIsSubmitting(true);
 
     try {
@@ -210,7 +210,7 @@ const Contact = () => {
         email: sanitizeInput(formData.email),
         message: sanitizeInput(formData.message)
       };
-      
+
       // TODO: Replace with actual API call
       // const response = await fetch('/api/contact', {
       //   method: 'POST',
@@ -220,17 +220,17 @@ const Contact = () => {
       //   },
       //   body: JSON.stringify(sanitizedData)
       // });
-      
+
       // if (!response.ok) {
       //   throw new Error('Failed to send message');
       // }
-      
+
       // Simulate API call for now
       await new Promise(resolve => setTimeout(resolve, 2000));
-      
+
       setSubmitStatus('success');
       setFormData({ name: '', email: '', message: '' });
-      
+
     } catch (error) {
       console.error('Form submission error:', error);
       setSubmitStatus('error');
@@ -260,13 +260,12 @@ const Contact = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Information - Enhanced Glass Design */}
-            <div 
+            <div
               ref={contactInfoRef}
-              className={`relative transition-all duration-1000 ease-out ${
-                isContactInfoVisible 
-                  ? 'opacity-100 translate-y-0' 
+              className={`relative transition-all duration-1000 ease-out ${isContactInfoVisible
+                  ? 'opacity-100 translate-y-0'
                   : 'opacity-0 translate-y-10'
-              }`}
+                }`}
             >
               <h3 className="text-2xl goldman-bold text-blue-600 mb-8 text-center">
                 Contact Information
@@ -280,18 +279,19 @@ const Contact = () => {
                 <div className="absolute inset-0 bg-gradient-to-tr from-white/5 via-transparent to-white/2 rounded-3xl"></div>
                 <div className="absolute top-0 left-0 w-full h-1/3 bg-gradient-to-b from-white/10 via-white/5 to-transparent rounded-t-3xl"></div>
 
+
                 <div className="relative z-10 space-y-6">
                   {/* Email */}
                   <div className="group">
-                    <div className="flex items-center p-6 bg-gradient-to-r from-white/5 to-white/2 backdrop-blur-sm border border-white/10 rounded-2xl hover:border-blue-500/30 transition-all duration-500 hover:bg-gradient-to-r hover:from-cyan-500/5 hover:to-blue-500/5">
-                      <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-800 rounded-full flex items-center justify-center mr-6 transition-all duration-500">
+                    <div className="flex items-center p-6 bg-gradient-to-r from-white/5 to-white/2 backdrop-blur-sm border border-white/10 rounded-2xl hover:border-cyan-400/30 transition-all duration-500 hover:bg-gradient-to-r hover:from-cyan-500/5 hover:to-blue-500/5">
+                      <div className="w-12 h-12 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-full flex items-center justify-center mr-6 group-hover:shadow-lg group-hover:shadow-cyan-400/40 transition-all duration-500">
                         <span className="text-white text-xl">✉️</span>
                       </div>
                       <div>
                         <h4 className="font-semibold text-white exo2-semibold mb-1 group-hover:text-cyan-100 transition-colors duration-300">Email</h4>
                         <a
                           href={`mailto:${personalInfo.email}`}
-                          className="text-blue-400 hover:text-purple-500 transition-colors duration-300 exo2-regular"
+                          className="text-cyan-400 hover:text-cyan-300 transition-colors duration-300 exo2-regular"
                         >
                           {personalInfo.email}
                         </a>
@@ -302,15 +302,15 @@ const Contact = () => {
                   {/* Phone */}
                   {personalInfo.phone && (
                     <div className="group">
-                      <div className="flex items-center p-6 bg-gradient-to-r from-white/5 to-white/2 backdrop-blur-sm border border-white/10 rounded-2xl hover:border-blue-500/30 transition-all duration-500 hover:bg-gradient-to-r hover:from-cyan-500/5 hover:to-blue-500/5">
-                        <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-800 rounded-full flex items-center justify-center mr-6 transition-all duration-500">
+                      <div className="flex items-center p-6 bg-gradient-to-r from-white/5 to-white/2 backdrop-blur-sm border border-white/10 rounded-2xl hover:border-cyan-400/30 transition-all duration-500 hover:bg-gradient-to-r hover:from-cyan-500/5 hover:to-blue-500/5">
+                        <div className="w-12 h-12 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-full flex items-center justify-center mr-6 group-hover:shadow-lg group-hover:shadow-cyan-400/40 transition-all duration-500">
                           <span className="text-white text-xl">📞</span>
                         </div>
                         <div>
                           <h4 className="font-semibold text-white exo2-semibold mb-1 group-hover:text-cyan-100 transition-colors duration-300">Phone</h4>
                           <a
                             href={`tel:${personalInfo.phone}`}
-                            className="text-blue-400 hover:text-purple-500 transition-colors duration-300 exo2-regular"
+                            className="text-cyan-400 hover:text-cyan-300 transition-colors duration-300 exo2-regular"
                           >
                             {personalInfo.phone}
                           </a>
@@ -322,13 +322,13 @@ const Contact = () => {
                   {/* Location */}
                   {personalInfo.location && (
                     <div className="group">
-                      <div className="flex items-center p-6 bg-gradient-to-r from-white/5 to-white/2 backdrop-blur-sm border border-white/10 rounded-2xl hover:border-blue-500/30 transition-all duration-500 hover:bg-gradient-to-r hover:from-cyan-500/5 hover:to-blue-500/5">
-                        <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-800 rounded-full flex items-center justify-center mr-6 transition-all duration-500">
+                      <div className="flex items-center p-6 bg-gradient-to-r from-white/5 to-white/2 backdrop-blur-sm border border-white/10 rounded-2xl hover:border-cyan-400/30 transition-all duration-500 hover:bg-gradient-to-r hover:from-cyan-500/5 hover:to-blue-500/5">
+                        <div className="w-12 h-12 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-full flex items-center justify-center mr-6 group-hover:shadow-lg group-hover:shadow-cyan-400/40 transition-all duration-500">
                           <span className="text-white text-xl">📍</span>
                         </div>
                         <div>
                           <h4 className="font-semibold text-white exo2-semibold mb-1 group-hover:text-cyan-100 transition-colors duration-300">Location</h4>
-                          <p className="text-blue-400 exo2-regular transition-colors duration-300">{personalInfo.location}</p>
+                          <p className="text-gray-300 exo2-regular group-hover:text-gray-100 transition-colors duration-300">{personalInfo.location}</p>
                         </div>
                       </div>
                     </div>
@@ -350,7 +350,7 @@ const Contact = () => {
                             href={href}
                             target={label !== "Email" ? "_blank" : undefined}
                             rel={label !== "Email" ? "noopener noreferrer" : undefined}
-                            className="p-3 bg-tranparent shadow-lg shadow-blue-500/50 rounded-xl text-white hover:bg-gray-800/50 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-blue-500/25 animate-fade-in-up"
+                            className="p-3 bg-tranparent shadow-lg shadow-cyan-600/50 rounded-xl text-white hover:bg-gray-800/50 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-cyan-500/25 animate-fade-in-up"
                             style={{ animationDelay: `${0.8 + index * 0.1}s` }}
                             aria-label={label}
                           >
@@ -368,13 +368,12 @@ const Contact = () => {
             </div>
 
             {/* Contact Form - Enhanced Glass Design with Security */}
-            <div 
+            <div
               ref={contactFormRef}
-              className={`relative transition-all duration-1000 ease-out ${
-                isContactFormVisible 
-                  ? 'opacity-100 translate-y-0' 
+              className={`relative transition-all duration-1000 ease-out ${isContactFormVisible
+                  ? 'opacity-100 translate-y-0'
                   : 'opacity-0 translate-y-10'
-              }`}
+                }`}
               style={{ transitionDelay: isContactFormVisible ? '400ms' : '0ms' }}
             >
               <h3 className="text-2xl goldman-bold text-blue-600 mb-8 text-center">
@@ -388,7 +387,7 @@ const Contact = () => {
                 <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/3 via-blue-500/2 to-purple-500/3 rounded-3xl"></div>
                 <div className="absolute inset-0 bg-gradient-to-tr from-white/5 via-transparent to-white/2 rounded-3xl"></div>
                 <div className="absolute top-0 left-0 w-full h-1/3 bg-gradient-to-b from-white/10 via-white/5 to-transparent rounded-t-3xl"></div>
-
+                
                 <div className="relative z-10">
                   <form onSubmit={handleSubmit} className="space-y-6" noValidate>
                     {/* General Error Message */}
@@ -411,9 +410,8 @@ const Contact = () => {
                         onChange={handleChange}
                         required
                         maxLength={50}
-                        className={`w-full px-4 py-3 border rounded-xl bg-gradient-to-r from-white/5 to-white/2 backdrop-blur-sm text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/40 transition-all duration-300 hover:bg-gradient-to-r hover:from-white/10 hover:to-white/5 exo2-regular ${
-                          errors.name ? 'border-red-400/50 focus:ring-red-500/50' : 'border-white/20'
-                        }`}
+                        className={`w-full px-4 py-3 border rounded-xl bg-gradient-to-r from-white/5 to-white/2 backdrop-blur-sm text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-500/40 transition-all duration-300 hover:bg-gradient-to-r hover:from-white/10 hover:to-white/5 exo2-regular ${errors.name ? 'border-red-400/50 focus:ring-red-500/50' : 'border-white/20'
+                          }`}
                         placeholder="Your Name"
                       />
                       {errors.name && (
@@ -434,9 +432,8 @@ const Contact = () => {
                         onChange={handleChange}
                         required
                         maxLength={100}
-                        className={`w-full px-4 py-3 border rounded-xl bg-gradient-to-r from-white/5 to-white/2 backdrop-blur-sm text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/40 transition-all duration-300 hover:bg-gradient-to-r hover:from-white/10 hover:to-white/5 exo2-regular ${
-                          errors.email ? 'border-red-400/50 focus:ring-red-500/50' : 'border-white/20'
-                        }`}
+                        className={`w-full px-4 py-3 border rounded-xl bg-gradient-to-r from-white/5 to-white/2 backdrop-blur-sm text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-500/40 transition-all duration-300 hover:bg-gradient-to-r hover:from-white/10 hover:to-white/5 exo2-regular ${errors.email ? 'border-red-400/50 focus:ring-red-500/50' : 'border-white/20'
+                          }`}
                         placeholder="your.email@example.com"
                       />
                       {errors.email && (
@@ -458,9 +455,8 @@ const Contact = () => {
                         required
                         rows={5}
                         maxLength={1000}
-                        className={`w-full px-4 py-3 border rounded-xl bg-gradient-to-r from-white/5 to-white/2 backdrop-blur-sm text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/40 transition-all duration-300 hover:bg-gradient-to-r hover:from-white/10 hover:to-white/5 resize-vertical exo2-regular ${
-                          errors.message ? 'border-red-400/50 focus:ring-red-500/50' : 'border-white/20'
-                        }`}
+                        className={`w-full px-4 py-3 border rounded-xl bg-gradient-to-r from-white/5 to-white/2 backdrop-blur-sm text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-500/40 transition-all duration-300 hover:bg-gradient-to-r hover:from-white/10 hover:to-white/5 resize-vertical exo2-regular ${errors.message ? 'border-red-400/50 focus:ring-red-500/50' : 'border-white/20'
+                          }`}
                         placeholder="Your message..."
                       />
                       {errors.message && (
@@ -473,11 +469,11 @@ const Contact = () => {
                       <button
                         type="submit"
                         disabled={isSubmitting}
-                        className="w-full px-6 py-4 bg-gradient-to-r from-blue-500/20 to-purple-800/20 hover:from-blue-600/30 hover:to-blue-900/30 backdrop-blur-sm border border-blue-500/30 hover:border-blue-500/50 rounded-xl text-white font-medium transition-all duration-500 hover:shadow-lg hover:shadow-blue-500/20 disabled:opacity-50 disabled:cursor-not-allowed exo2-medium tracking-wide group"
+                        className="w-full px-6 py-4 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 hover:from-cyan-500/30 hover:to-blue-500/30 backdrop-blur-sm border border-cyan-400/30 hover:border-cyan-400/50 rounded-xl text-white font-medium transition-all duration-500 hover:shadow-lg hover:shadow-cyan-400/20 disabled:opacity-50 disabled:cursor-not-allowed exo2-medium tracking-wide group"
                       >
                         <span className="flex items-center justify-center gap-2">
                           {isSubmitting && (
-                            <div className="w-5 h-5 border-2 border-white/30 border-t-blue-500 rounded-full animate-spin"></div>
+                            <div className="w-5 h-5 border-2 border-white/30 border-t-cyan-500 rounded-full animate-spin"></div>
                           )}
                           {isSubmitting ? 'Sending...' : 'Send Message'}
                         </span>
@@ -500,7 +496,7 @@ const Contact = () => {
                 </div>
 
                 {/* Bottom highlight */}
-                <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/30 to-transparent"></div>
+                <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyan-500/30 to-transparent"></div>
               </div>
             </div>
           </div>

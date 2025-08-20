@@ -209,7 +209,7 @@ const Header = () => {
         <div className="relative p-4 bg-gradient-to-br from-white/5 via-white/2 to-transparent backdrop-blur-2xl border border-white/10 rounded-3xl shadow-2xl shadow-black/30 hover:shadow-cyan-500/10 transition-all duration-1000 overflow-hidden">
           
           {/* Multiple Glass Layers for Enhanced Effect */}
-          <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/3 via-blue-500/2 to-purple-500/3 rounded-3xl"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/3 to-blue-500/3 rounded-3xl"></div>
           <div className="absolute inset-0 bg-gradient-to-tr from-white/5 via-transparent to-white/2 rounded-3xl"></div>
           <div className="absolute top-0 left-0 w-full h-1/3 bg-gradient-to-b from-white/10 via-white/5 to-transparent rounded-t-3xl"></div>
           
@@ -217,7 +217,7 @@ const Header = () => {
             {/* Logo */}
             <button
               onClick={(e) => scrollToSection(e, "#home", "home")}
-              className="text-lg font-bold bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent mb-4 p-2"
+              className="text-lg font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mb-4 p-2"
               style={{ fontFamily: 'var(--font-goldman)' }}
               title="Home"
             >
@@ -231,7 +231,7 @@ const Header = () => {
                 onClick={(e) => scrollToSection(e, item.href, item.id)}
                 className={`group relative p-3 rounded-xl transition-all duration-300 ${
                   activeSection === item.id
-                    ? "bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-white"
+                    ? "bg-gradient-to-r from-cyan-500/20 to-blue-500/20 text-white"
                     : "text-gray-400 hover:text-white hover:bg-white/5"
                 }`}
                 title={item.label}
@@ -247,8 +247,6 @@ const Header = () => {
             ))}
           </div>
           
-          {/* Bottom highlight */}
-          <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyan-400/30 to-transparent"></div>
         </div>
       </nav>
 
@@ -258,7 +256,7 @@ const Header = () => {
         <div className="relative bg-gradient-to-br from-white/5 via-white/2 to-transparent backdrop-blur-2xl border-b border-white/10 shadow-2xl shadow-black/30 overflow-hidden">
           
           {/* Multiple Glass Layers for Enhanced Effect */}
-          <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/3 via-blue-500/2 to-purple-500/3"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/3 to-blue-500/3"></div>
           <div className="absolute inset-0 bg-gradient-to-tr from-white/5 via-transparent to-white/2"></div>
           <div className="absolute top-0 left-0 w-full h-1/3 bg-gradient-to-b from-white/10 via-white/5 to-transparent"></div>
           
@@ -268,7 +266,7 @@ const Header = () => {
               <div className="flex-shrink-0">
                 <button
                   onClick={(e) => scrollToSection(e, "#home", "home")}
-                  className="text-xl font-bold bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent"
+                  className="text-xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent"
                   style={{ fontFamily: 'var(--font-goldman)' }}
                 >
                   {personalInfo.name}
@@ -309,7 +307,7 @@ const Header = () => {
                     onClick={(e) => scrollToSection(e, item.href, item.id)}
                     className={`flex items-center gap-4 w-full text-left px-4 py-3 text-lg font-medium transition-all duration-300 ease rounded-xl ${
                       activeSection === item.id
-                        ? "bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-white"
+                        ? "bg-gradient-to-r from-blue-500/20 to-blue-500/20 text-white"
                         : "text-gray-300 hover:text-white hover:bg-white/5"
                     }`}
                     style={{
@@ -327,7 +325,7 @@ const Header = () => {
                     </div>
                     <span className={`${
                       activeSection === item.id
-                        ? "bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent font-semibold"
+                        ? "bg-gradient-to-r from-blue-500 to-blue-500 bg-clip-text text-transparent font-semibold"
                         : ""
                     }`}>
                       {item.label}
@@ -338,8 +336,6 @@ const Header = () => {
             </div>
           </div>
           
-          {/* Bottom highlight */}
-          <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyan-400/30 to-transparent"></div>
         </div>
       </nav>
     </>
