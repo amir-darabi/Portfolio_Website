@@ -1,7 +1,7 @@
 'use client'
 import React, { useEffect, useState } from 'react';
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
-import { Github, Linkedin, Mail, Download, Briefcase, FolderOpen, Code, Layers, ArrowRight } from 'lucide-react';
+import { Github, Linkedin, Mail, Download, Layers } from 'lucide-react';
 import { personalInfo } from '@/lib/data';
 import Button from '@/components/ui/Button';
 import '../../styles/fonts.css';
@@ -121,7 +121,7 @@ const Home = () => {
                     style={{ animationDelay: '0.6s' }}
                   >
                     {/* Typing Effect */}
-                    <div className="h-8 flex items-center">
+                    <div className="h-8 flex items-center justify-center lg:justify-start">
                       <span className="text-xl md:text-2xl text-blue-800 font-light goldman-regular">
                         {text}
                       </span>
@@ -193,7 +193,7 @@ const Home = () => {
 
               {/* Right Side - Lottie Animation */}
               <div
-                className="flex-1 flex justify-center items-center animate-floating"
+                className="flex-1 flex justify-center items-center animate-floating hidden md:flex"
               >
                 <div className="relative transition-transform duration-500 hover:scale-105">
                   {/* Decorative rings around animation */}
