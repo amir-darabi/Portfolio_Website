@@ -29,7 +29,7 @@ const AnimatedBackground = () => {
 
 	// Generate stars only on client side to avoid hydration mismatch
 	useEffect(() => {
-		setStars(generateStars(75));
+		setStars(generateStars(50));
 	}, []);
 
 	useEffect(() => {
