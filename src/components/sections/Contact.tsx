@@ -30,7 +30,7 @@ const validateInput = {
   message: (value: string): { isValid: boolean; error?: string } => {
     const trimmed = value.trim();
     if (!trimmed) return { isValid: false, error: 'Message is required' };
-    if (trimmed.length < 10) return { isValid: false, error: 'Message must be at least 10 characters' };
+    if (trimmed.length < 5) return { isValid: false, error: 'Message must be at least 5 characters' };
     if (trimmed.length > 1000) return { isValid: false, error: 'Message must be less than 1000 characters' };
     // Check for potential malicious content patterns
     const suspiciousPatterns = [
@@ -124,11 +124,12 @@ const Contact = () => {
     };
 
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
           if (entry.target === contactInfoRef.current) {
             setIsContactInfoVisible(true);
-          } else if (entry.target === contactFormRef.current) {
+          }
+          if (entry.target === contactFormRef.current) {
             setIsContactFormVisible(true);
           }
         }
@@ -153,7 +154,10 @@ const Contact = () => {
 
     // Clear previous errors for this field
     if (errors[name as keyof FormErrors]) {
-      setErrors(prev => ({ ...prev, [name]: undefined }));
+      setErrors(prev => ({
+        ...prev,
+        [name]: undefined
+      }));
     }
 
     setFormData(prev => ({
@@ -211,22 +215,20 @@ const Contact = () => {
         message: sanitizeInput(formData.message)
       };
 
-      // TODO: Replace with actual API call
-      // const response = await fetch('/api/contact', {
-      //   method: 'POST',
-      //   headers: {
-      //     'Content-Type': 'application/json',
-      //     'X-CSRF-Token': csrfToken // Add CSRF protection
-      //   },
-      //   body: JSON.stringify(sanitizedData)
-      // });
+      // Send to API
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(sanitizedData)
+      });
 
-      // if (!response.ok) {
-      //   throw new Error('Failed to send message');
-      // }
+      const responseData = await response.json();
 
-      // Simulate API call for now
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      if (!response.ok) {
+        throw new Error(responseData.error || 'Failed to send message');
+      }
 
       setSubmitStatus('success');
       setFormData({ name: '', email: '', message: '' });
@@ -234,7 +236,10 @@ const Contact = () => {
     } catch (error) {
       console.error('Form submission error:', error);
       setSubmitStatus('error');
-      setErrors({ general: 'Failed to send message. Please try again later.' });
+      
+      // Show the specific error message from the API if available
+      const errorMessage = error instanceof Error ? error.message : 'Failed to send message. Please try again later.';
+      setErrors({ general: errorMessage });
     } finally {
       setIsSubmitting(false);
     }
@@ -259,7 +264,7 @@ const Contact = () => {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Contact Information - Enhanced Glass Design */}
+            {/* Contact Information - Using Card Component */}
             <div
               ref={contactInfoRef}
               className={`relative transition-all duration-1000 ease-out ${isContactInfoVisible
@@ -271,14 +276,11 @@ const Contact = () => {
                 Contact Information
               </h3>
 
-              {/* Super Glassy Container */}
-              <div className="relative p-8 bg-gradient-to-br from-white/5 via-white/2 to-transparent backdrop-blur-2xl border border-white/10 rounded-3xl shadow-2xl shadow-black/30 hover:shadow-cyan-500/10 transition-all duration-1000 overflow-hidden">
-
+              <Card className="relative p-8 bg-gradient-to-br from-white/5 via-white/2 to-transparent backdrop-blur-2xl border border-white/10 shadow-2xl shadow-black/30 hover:shadow-cyan-500/10 transition-all duration-1000 overflow-hidden">
                 {/* Multiple Glass Layers for Enhanced Effect */}
                 <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/3 via-blue-500/2 to-purple-500/3 rounded-3xl"></div>
                 <div className="absolute inset-0 bg-gradient-to-tr from-white/5 via-transparent to-white/2 rounded-3xl"></div>
                 <div className="absolute top-0 left-0 w-full h-1/3 bg-gradient-to-b from-white/10 via-white/5 to-transparent rounded-t-3xl"></div>
-
 
                 <div className="relative z-10 space-y-6">
                   {/* Email */}
@@ -364,10 +366,10 @@ const Contact = () => {
 
                 {/* Bottom highlight */}
                 <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/30 to-transparent"></div>
-              </div>
+              </Card>
             </div>
 
-            {/* Contact Form - Enhanced Glass Design with Security */}
+            {/* Contact Form - Using Card Component */}
             <div
               ref={contactFormRef}
               className={`relative transition-all duration-1000 ease-out ${isContactFormVisible
@@ -380,9 +382,7 @@ const Contact = () => {
                 Send a Message
               </h3>
 
-              {/* Super Glassy Container */}
-              <div className="relative p-8 bg-gradient-to-br from-white/5 via-white/2 to-transparent backdrop-blur-2xl border border-white/10 rounded-3xl shadow-2xl shadow-black/30 hover:shadow-cyan-500/10 transition-all duration-1000 overflow-hidden">
-
+              <Card className="relative p-8 bg-gradient-to-br from-white/5 via-white/2 to-transparent backdrop-blur-2xl border border-white/10 shadow-2xl shadow-black/30 hover:shadow-cyan-500/10 transition-all duration-1000 overflow-hidden">
                 {/* Multiple Glass Layers for Enhanced Effect */}
                 <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/3 via-blue-500/2 to-purple-500/3 rounded-3xl"></div>
                 <div className="absolute inset-0 bg-gradient-to-tr from-white/5 via-transparent to-white/2 rounded-3xl"></div>
@@ -464,12 +464,13 @@ const Contact = () => {
                       )}
                     </div>
 
-                    {/* Submit Button */}
-                    <div className="pt-4">
-                      <button
+                    {/* Submit Button - Using Button Component */}
+                    <div className="pt-4 pb-2">
+                      <Button
+                        variant="primary"
                         type="submit"
                         disabled={isSubmitting}
-                        className="w-full px-6 py-4 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 hover:from-cyan-500/30 hover:to-blue-500/30 backdrop-blur-sm border border-cyan-400/30 hover:border-cyan-400/50 rounded-xl text-white font-medium transition-all duration-500 hover:shadow-lg hover:shadow-cyan-400/20 disabled:opacity-50 disabled:cursor-not-allowed exo2-medium tracking-wide group"
+                        className="w-full px-6 py-4"
                       >
                         <span className="flex items-center justify-center gap-2">
                           {isSubmitting && (
@@ -477,7 +478,7 @@ const Contact = () => {
                           )}
                           {isSubmitting ? 'Sending...' : 'Send Message'}
                         </span>
-                      </button>
+                      </Button>
                     </div>
 
                     {/* Status Messages */}
@@ -497,7 +498,7 @@ const Contact = () => {
 
                 {/* Bottom highlight */}
                 <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyan-500/30 to-transparent"></div>
-              </div>
+              </Card>
             </div>
           </div>
         </div>

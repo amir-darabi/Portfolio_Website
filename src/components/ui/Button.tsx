@@ -26,7 +26,7 @@ const Button = ({
   const baseClasses = 'inline-flex items-center justify-center font-medium rounded-xl transition-all duration-300 focus:outline-none';
   
   const variantClasses = {
-    primary: 'bg-fuchsia-900/30 text-white shadow-lg shadow-fuchsia-800/50 exo2-regular transform transition-all hover:shadow-xl hover:-translate-y-0.5',
+    primary: ' bg-gradient-to-r from-cyan-500/20 to-blue-500/20 hover:from-cyan-500/30 hover:to-blue-500/30 backdrop-blur-sm border border-cyan-400/30 hover:border-cyan-400/50 text-white font-medium transition-all duration-500 hover:shadow-lg hover:shadow-cyan-400/20 disabled:opacity-50 disabled:cursor-not-allowed exo2-medium tracking-wide',
     secondary: 'bg-black/30 text-white shadow-lg shadow-blue-500/50 border-blue-500 exo2-regular transform transition-all hover:shadow-xl hover:-translate-y-0.5',
     outline: 'border-2 border-blue-600 text-blue-600 bg-transparent shadow-lg shadow-blue-500/40 hover:bg-blue-50 hover:shadow-2xl hover:shadow-blue-500/60',
   };
