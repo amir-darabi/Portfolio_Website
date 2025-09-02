@@ -20,7 +20,7 @@ const goldman = Goldman({
 });
 
 export const metadata: Metadata = {
-  title: "Amir Darabi Portfolio Website",
+  title: "Amir Darabi - Software Developer",
   description: "Personal portfolio website showcasing projects and skills",
 };
 
