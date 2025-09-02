@@ -14,7 +14,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-black/60 backdrop-blur-sm text-white py-4 border-t border-white/10 shadow-2xl shadow-black/50" style={{ overscrollBehavior: 'none' }}>
+    <footer className="bg-black/60 backdrop-blur-lg text-white py-4 border-t border-white/10 shadow-2xl shadow-black/50" style={{ overscrollBehavior: 'none' }}>
       <div className="container mx-auto px-3">
         <div className="flex items-center justify-center space-x-4 relative" >
           <p className="text-gray-300 rajdhani-medium text-sm md:text-base">

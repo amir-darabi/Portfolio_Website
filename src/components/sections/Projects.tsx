@@ -56,7 +56,7 @@ const Projects = () => {
     : filteredProjects.filter(project => project.featured);
 
   return (
-    <section id="projects" className="py-20 bg-black/40 backdrop-blur-sm">
+    <section id="projects" className="py-20 bg-black/40 backdrop-blur-md">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}

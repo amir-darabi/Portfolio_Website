@@ -246,7 +246,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-black/40 backdrop-blur-sm">
+    <section id="contact" className="py-20 bg-black/40 backdrop-blur-lg">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
@@ -410,7 +410,7 @@ const Contact = () => {
                         onChange={handleChange}
                         required
                         maxLength={50}
-                        className={`w-full px-4 py-3 border rounded-xl bg-gradient-to-r from-white/5 to-white/2 backdrop-blur-sm text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-500/40 transition-all duration-300 hover:bg-gradient-to-r hover:from-white/10 hover:to-white/5 exo2-regular ${errors.name ? 'border-red-400/50 focus:ring-red-500/50' : 'border-white/20'
+                        className={`w-full px-4 py-3 border rounded-xl bg-transparent backdrop-blur-sm text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-500/40 transition-all duration-300 hover:bg-gradient-to-r hover:from-white/10 hover:to-white/5 exo2-regular ${errors.name ? 'border-red-400/50 focus:ring-red-500/50' : 'border-white/20'
                           }`}
                         placeholder="Your Name"
                       />
@@ -432,7 +432,7 @@ const Contact = () => {
                         onChange={handleChange}
                         required
                         maxLength={100}
-                        className={`w-full px-4 py-3 border rounded-xl bg-gradient-to-r from-white/5 to-white/2 backdrop-blur-sm text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-500/40 transition-all duration-300 hover:bg-gradient-to-r hover:from-white/10 hover:to-white/5 exo2-regular ${errors.email ? 'border-red-400/50 focus:ring-red-500/50' : 'border-white/20'
+                        className={`w-full px-4 py-3 border rounded-xl bg-transparent backdrop-blur-sm text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-500/40 transition-all duration-300 hover:bg-gradient-to-r hover:from-white/10 hover:to-white/5 exo2-regular ${errors.email ? 'border-red-400/50 focus:ring-red-500/50' : 'border-white/20'
                           }`}
                         placeholder="your.email@example.com"
                       />
@@ -455,7 +455,7 @@ const Contact = () => {
                         required
                         rows={5}
                         maxLength={1000}
-                        className={`w-full px-4 py-3 border rounded-xl bg-gradient-to-r from-white/5 to-white/2 backdrop-blur-sm text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-500/40 transition-all duration-300 hover:bg-gradient-to-r hover:from-white/10 hover:to-white/5 resize-vertical exo2-regular ${errors.message ? 'border-red-400/50 focus:ring-red-500/50' : 'border-white/20'
+                        className={`w-full px-4 py-3 border rounded-xl bg-transparent  backdrop-blur-sm text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-500/40 transition-all duration-300 hover:bg-gradient-to-r hover:from-white/10 hover:to-white/5 resize-vertical exo2-regular ${errors.message ? 'border-red-400/50 focus:ring-red-500/50' : 'border-white/20'
                           }`}
                         placeholder="Your message..."
                       />
