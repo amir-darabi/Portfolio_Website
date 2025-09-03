@@ -104,7 +104,7 @@ const About = () => {
               }`}
               style={{ transitionDelay: isStatsVisible ? '100ms' : '0ms' }}
             >
-              <Card className="p-6 text-center bg-gradient-to-br from-blue-600/10 to-purple-00/10 border border-blue-400/30 shadow-lg shadow-blue-500/20 hover:shadow-xl hover:scale-102 group" hover={true}>
+              <Card className="p-6 text-center bg-gradient-to-br from-blue-600/10 to-purple-600/10 border border-blue-400/30 shadow-lg shadow-blue-500/20 hover:shadow-xl hover:scale-102 group" hover={true}>
               <div className="flex flex-col items-center">
                 {/* Icon */}
                 <div className="w-12 h-12 mb-3 bg-gradient-to-br from-blue-500/80 to-purple-500/80 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">

@@ -42,7 +42,6 @@ export const skills: Skill[] = [
   { name: "Figma", category: "Web Development" },
   { name: "Chakra UI", category: "Web Development" },
 
-
   // Programming
   { name: "Python", category: "Programming" },
   { name: "Java", category: "Programming" },
@@ -117,7 +116,14 @@ export const projects: Project[] = [
       "A complete todo application with user authentication, CRUD operations, and database integration.",
     longDescription:
       "Developed a comprehensive task management system with user registration, authentication, full CRUD operations, data persistence, task categories, priority levels, and real-time updates. Features both frontend and backend with database integration.",
-    techStack: ["React", "Django", "SQLite", "Firebase", "JWT", "TanStack Query"],
+    techStack: [
+      "React",
+      "Django",
+      "SQLite",
+      "Firebase",
+      "JWT",
+      "TanStack Query",
+    ],
     imageUrl: "/images/projects/todo-preview.png",
     demoUrl: "#", // Will add later
     githubUrl: "#", // Will add later
@@ -130,7 +136,14 @@ export const projects: Project[] = [
       "A comprehensive admin dashboard with analytics, user management, and data visualization.",
     longDescription:
       "Built a modern admin dashboard featuring real-time analytics, user management system, interactive charts, and responsive design. Includes data filtering, export functionality, and role-based access controls.",
-    techStack: ["React", "Node.js", "TypeScript", "JavaScript", "Chakra UI", "Vite"],
+    techStack: [
+      "React",
+      "Node.js",
+      "TypeScript",
+      "JavaScript",
+      "Chakra UI",
+      "Vite",
+    ],
     imageUrl: "/images/projects/dashboard-preview.png",
     demoUrl: "#", // Will add later
     githubUrl: "#", // Will add later
@@ -143,10 +156,35 @@ export const projects: Project[] = [
       "A responsive e-commerce frontend with dynamic product listings and Grid/List view modes.",
     longDescription:
       "Developed a modern webshop frontend showcasing products with both Grid and List view options. Designed with a clean and responsive UI to highlight products, provide detailed views, and deliver a smooth browsing experience across devices.",
-    techStack: ["React", "Node.js", "TypeScript", "JavaScript", "Tailwind CSS", "Vite"],
+    techStack: [
+      "React",
+      "Node.js",
+      "TypeScript",
+      "JavaScript",
+      "Tailwind CSS",
+      "Vite",
+    ],
     imageUrl: "/images/projects/webshop-preview.png",
     demoUrl: "#", // Will add later
     githubUrl: "#", // Will add later
     featured: true,
+  },
+  {
+    id: "4",
+    title: "Snake Game",
+    description:
+      "A fully functional Snake game implemented in Scala with game state management and advanced features like reverse mode.",
+    longDescription:
+      "Developed a complete Snake game implementation using object-oriented programming principles in Scala. Features include stateful game management with history tracking, collision detection, wrapping boundaries, dynamic snake growth (3 blocks per apple), strategic apple placement algorithm, and an innovative reverse mode that allows players to rewind gameplay. Built with Processing framework for graphics rendering and includes comprehensive test coverage following academic requirements.",
+    techStack: [
+      "Scala",
+      "Object-Oriented Programming",
+      "Game State Management",
+      "Unit Testing",
+    ],
+    imageUrl: "/images/projects/snake-preview.png",
+    demoUrl: "#", // Will add later
+    githubUrl: "#", // Will add later
+    featured: false,
   },
 ];
