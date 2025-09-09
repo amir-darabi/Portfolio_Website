@@ -220,16 +220,13 @@ const Projects = () => {
                 onClick={() => setShowAll(true)}
                 variant="secondary"
                 size="lg"
-                className="bg-gradient-to-r from-cyan-500/20 to-blue-600/20 border border-cyan-400/30 hover:from-cyan-500/30 hover:to-blue-600/30 hover:border-cyan-400/50 shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/30 backdrop-blur-xl px-8 py-4"
+                className=""
               >
-                <span className="flex items-center gap-3 goldman-regular">
+                <span className="flex items-center gap-3">
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
                   View All Projects ({filteredProjects.length})
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
                 </span>
               </Button>
             </div>
@@ -239,18 +236,15 @@ const Projects = () => {
             <div className="text-center">
               <Button
                 onClick={() => setShowAll(false)}
-                variant="outline"
+                variant="secondary"
                 size="lg"
-                className="bg-gradient-to-r from-white/5 to-white/10 border border-white/20 hover:from-white/10 hover:to-white/15 hover:border-white/40 shadow-lg shadow-black/20 hover:shadow-white/10 backdrop-blur-xl px-8 py-4"
+                className=""
               >
-                <span className="flex items-center gap-3 goldman-regular">
+                <span className="flex items-center gap-3 ">
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
                   </svg>
-                  Show Featured Only
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
-                  </svg>
+                  Show Less Projects
                 </span>
               </Button>
             </div>

@@ -236,7 +236,7 @@ const Contact = () => {
     } catch (error) {
       console.error('Form submission error:', error);
       setSubmitStatus('error');
-      
+
       // Show the specific error message from the API if available
       const errorMessage = error instanceof Error ? error.message : 'Failed to send message. Please try again later.';
       setErrors({ general: errorMessage });
@@ -268,8 +268,8 @@ const Contact = () => {
             <div
               ref={contactInfoRef}
               className={`relative transition-all duration-1000 ease-out ${isContactInfoVisible
-                  ? 'opacity-100 translate-y-0'
-                  : 'opacity-0 translate-y-10'
+                ? 'opacity-100 translate-y-0'
+                : 'opacity-0 translate-y-10'
                 }`}
             >
               <h3 className="text-2xl goldman-bold text-blue-600 mb-8 text-center">
@@ -352,7 +352,7 @@ const Contact = () => {
                             href={href}
                             target={label !== "Email" ? "_blank" : undefined}
                             rel={label !== "Email" ? "noopener noreferrer" : undefined}
-                            className="p-3 bg-tranparent shadow-lg shadow-cyan-600/50 rounded-xl text-white hover:bg-gray-800/50 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-cyan-500/25 animate-fade-in-up"
+                            className="p-3 bg-transparent border border-transparent shadow-lg shadow-cyan-600/50 rounded-xl text-white hover:bg-gray-800/50 transition-all duration-300 hover:scale-110 hover:shadow-none hover:border-cyan-400 animate-fade-in-up"
                             style={{ animationDelay: `${0.8 + index * 0.1}s` }}
                             aria-label={label}
                           >
@@ -373,8 +373,8 @@ const Contact = () => {
             <div
               ref={contactFormRef}
               className={`relative transition-all duration-1000 ease-out ${isContactFormVisible
-                  ? 'opacity-100 translate-y-0'
-                  : 'opacity-0 translate-y-10'
+                ? 'opacity-100 translate-y-0'
+                : 'opacity-0 translate-y-10'
                 }`}
               style={{ transitionDelay: isContactFormVisible ? '400ms' : '0ms' }}
             >
@@ -387,7 +387,7 @@ const Contact = () => {
                 <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/3 via-blue-500/2 to-purple-500/3 rounded-3xl"></div>
                 <div className="absolute inset-0 bg-gradient-to-tr from-white/5 via-transparent to-white/2 rounded-3xl"></div>
                 <div className="absolute top-0 left-0 w-full h-1/3 bg-gradient-to-b from-white/10 via-white/5 to-transparent rounded-t-3xl"></div>
-                
+
                 <div className="relative z-10">
                   <form onSubmit={handleSubmit} className="space-y-6" noValidate>
                     {/* General Error Message */}

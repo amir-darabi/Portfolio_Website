@@ -180,7 +180,7 @@ const Home = () => {
                         href={href}
                         target={label !== "Email" ? "_blank" : undefined}
                         rel={label !== "Email" ? "noopener noreferrer" : undefined}
-                        className="p-3 bg-black/30 border border-gray-800 shadow-lg shadow-blue-500/50 rounded-xl text-white hover:bg-gray-800/50 hover:border-blue-800 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-blue-500/25 animate-fade-in-up"
+                        className="p-3 bg-black/30 border border-gray-800 shadow-lg shadow-blue-500/50 rounded-xl text-white hover:bg-gray-800/50 hover:border-blue-800 transition-all duration-300 hover:scale-110 hover:shadow-none animate-fade-in-up"
                         style={{ animationDelay: `${0.8 + index * 0.1}s` }}
                         aria-label={label}
                       >
