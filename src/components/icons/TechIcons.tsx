@@ -20,6 +20,7 @@ import {
   DjangoPlain,
   NodejsOriginal,
   FirebaseOriginal,
+  SupabaseOriginal,
   GitOriginal,
   GithubOriginal,
   VercelOriginal,
@@ -58,6 +59,7 @@ const skillIconMap: Record<string, IconComponent> = {
   'Django': DjangoPlain,
   'NodeJS': NodejsOriginal,
   'Firebase': FirebaseOriginal,
+  'Supabase': SupabaseOriginal,
   
   // Development Tools
   'Git': GitOriginal,

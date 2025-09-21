@@ -55,6 +55,7 @@ export const skills: Skill[] = [
   { name: "Django", category: "Data & Backend" },
   { name: "NodeJS", category: "Data & Backend" },
   { name: "Firebase", category: "Data & Backend" },
+  { name: "Supabase", category: "Data & Backend" },
 
   // Development Tools
   { name: "Git", category: "Development Tools" },

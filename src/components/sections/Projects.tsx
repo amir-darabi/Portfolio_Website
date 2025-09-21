@@ -16,8 +16,8 @@ const Projects = () => {
 
   useEffect(() => {
     const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '-50px 0px -50px 0px'
+      threshold: 0.05, // Reduced threshold
+      rootMargin: '-20px 0px -20px 0px' // Reduced margin
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -25,6 +25,8 @@ const Projects = () => {
         if (entry.isIntersecting) {
           if (entry.target === projectsRef.current) {
             setIsProjectsVisible(true);
+            // Disconnect after first trigger to avoid repeated calls
+            observer.disconnect();
           }
         }
       });
@@ -82,7 +84,7 @@ const Projects = () => {
                 className={`relative px-6 py-3 rounded-xl transition-all duration-500 exo2-regular overflow-hidden group border whitespace-nowrap ${
                   filter === 'all'
                     ? 'bg-gradient-to-r from-cyan-500/10 to-blue-600/10 text-white border-cyan-400/30 backdrop-blur-sm shadow-lg shadow-cyan-500/20'
-                    : 'text-gray-400 border-blue-500 hover:text-cyan-300 hover:bg-gradient-to-r hover:from-white/5 hover:via-cyan-500/5 hover:to-blue-500/5 hover:border-cyan-400/10'
+                    : 'text-gray-400 border-transparent hover:text-cyan-300 hover:bg-gradient-to-r hover:from-white/5 hover:via-cyan-500/5 hover:to-blue-500/5 hover:border-cyan-400/10'
                 }`}
               >
                 {/* Background glow effect for active button */}
@@ -165,6 +167,11 @@ const Projects = () => {
                         alt={project.title}
                         fill
                         className="object-cover group-hover:scale-110 transition-transform duration-700"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        quality={75}
+                        loading={index < 3 ? "eager" : "lazy"}
+                        placeholder="blur"
+                        blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
                       />
                     ) : (
                       <div className="w-full h-full flex items-center justify-center text-gray-400 bg-gradient-to-br from-gray-800/30 to-gray-900/30 backdrop-blur-sm">

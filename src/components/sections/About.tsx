@@ -219,11 +219,11 @@ const About = () => {
                 }`}
             >
               {skillsByCategory[activeTab] && (
-                <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 gap-2 sm:gap-3 md:gap-4 lg:gap-5 animate-fadeIn justify-items-center">
+                <div className="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4 lg:gap-5 animate-fadeIn max-w-6xl mx-auto">
                   {skillsByCategory[activeTab].map((skill, index) => (
                     <div
                       key={skill.name}
-                      className="group relative w-full max-w-[100px] sm:max-w-[120px] md:max-w-[140px]"
+                      className="group relative w-[90px] sm:w-[100px] md:w-[120px] lg:w-[130px]"
                       style={{
                         animationDelay: `${index * 100}ms`,
                         animation: 'fadeInUp 0.6s ease-out forwards'

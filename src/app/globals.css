@@ -4,6 +4,7 @@
 
 @import "../styles/components.css";
 @import "../styles/fonts.css";
+@import "../styles/performance.css";
 
 :root {
   --background: #ffffff;
@@ -22,6 +23,7 @@ html {
   scroll-behavior: smooth;
   overflow-x: hidden; /* Prevent horizontal scroll */
   overscroll-behavior: none; /* Prevent scroll bounce */
+  scroll-padding-top: 0; /* Reset any scroll padding */
 }
 
 body {
@@ -40,4 +42,63 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Loading screen animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.animate-fadeInDown {
+  animation: fadeInDown 0.6s ease-out;
+}
+
+.animate-fadeInRight {
+  animation: fadeInRight 0.6s ease-out;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
 }
