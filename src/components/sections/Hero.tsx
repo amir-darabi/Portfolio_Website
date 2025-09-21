@@ -4,13 +4,16 @@ import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 import { Github, Linkedin, Mail, Download, Layers } from 'lucide-react';
 import { personalInfo } from '@/lib/data';
 import Button from '@/components/ui/Button';
+import { useLoading } from '@/lib/LoadingContext';
 import '../../styles/fonts.css';
 
 
 
 const Home = () => {
+  const { isLoadingComplete } = useLoading();
   const [text, setText] = useState('');
   const [isLoaded, setIsLoaded] = useState(false);
+  const [animationStep, setAnimationStep] = useState(0);
   const titleText = personalInfo.title;
 
   // Scroll to about section
@@ -51,10 +54,30 @@ const Home = () => {
   };
 
   useEffect(() => {
-    setIsLoaded(true);
-  }, []);
+    // Only start Hero animations after loading is complete
+    if (isLoadingComplete) {
+      setIsLoaded(true);
+      // Start staggered animations
+      const animationTimers = [
+        setTimeout(() => setAnimationStep(1), 200),  // "Hello, I'm"
+        setTimeout(() => setAnimationStep(2), 400),  // Name
+        setTimeout(() => setAnimationStep(3), 600),  // Typing effect starts
+        setTimeout(() => setAnimationStep(4), 800),  // Bio text
+        setTimeout(() => setAnimationStep(5), 1000), // Buttons
+        setTimeout(() => setAnimationStep(6), 1200), // Social links
+        setTimeout(() => setAnimationStep(7), 1200), // Scroll indicator
+      ];
+      
+      return () => {
+        animationTimers.forEach(timer => clearTimeout(timer));
+      };
+    }
+  }, [isLoadingComplete]);
 
   useEffect(() => {
+    // Only start typing effect when animation step 3 is reached
+    if (animationStep < 3) return;
+
     let index = 0;
     let isDeleting = false;
     let isTyping = true;
@@ -85,7 +108,7 @@ const Home = () => {
     }, isDeleting ? 100 : 150); // Faster deletion than typing
 
     return () => clearInterval(timer);
-  }, [titleText]);
+  }, [titleText, animationStep]);
 
   return (
     <section id="home" className="relative min-h-screen w-full flex items-center justify-center overflow-hidden py-20 ">
@@ -101,46 +124,61 @@ const Home = () => {
               <div
                 className="flex-1 text-center lg:text-left space-y-6 max-w-2xl animate-fade-in-left"
               >
-                <div className="space-y-2 animate-fade-in-up">
+                <div className="space-y-2">
                   <p
-                    className="text-lg md:text-xl text-gray-300 goldman-regular tracking-wider animate-fade-in-up"
-                    style={{ animationDelay: '0.2s' }}
+                    className={`text-lg md:text-xl text-gray-300 goldman-regular tracking-wider transition-all duration-700 ease-out ${
+                      animationStep >= 1 
+                        ? 'opacity-100 translate-y-0' 
+                        : 'opacity-0 translate-y-4'
+                    }`}
                   >
                     Hello, I&apos;m
                   </p>
 
                   <h1
-                    className="text-2xl md:text-4xl lg:text-6xl goldman-bold bg-gradient-to-r from-cyan-300 via-blue-600 to-purple-800 bg-clip-text text-transparent leading-tight animate-fade-in-scale"
-                    style={{ animationDelay: '0.4s' }}
+                    className={`text-2xl md:text-4xl lg:text-6xl goldman-bold bg-gradient-to-r from-cyan-300 via-blue-600 to-purple-800 bg-clip-text text-transparent leading-tight transition-all duration-700 ease-out ${
+                      animationStep >= 2 
+                        ? 'opacity-100 translate-y-0 scale-100' 
+                        : 'opacity-0 translate-y-4 scale-95'
+                    }`}
                   >
                     {personalInfo.name}
                   </h1>
 
                   <div
-                    className="text-xl md:text-2xl lg:text-3xl text-cyan-300 orbitron-regular animate-fade-in-right"
-                    style={{ animationDelay: '0.6s' }}
+                    className={`text-xl md:text-2xl lg:text-3xl text-cyan-300 orbitron-regular transition-all duration-700 ease-out ${
+                      animationStep >= 3 
+                        ? 'opacity-100 translate-x-0' 
+                        : 'opacity-0 translate-x-4'
+                    }`}
                   >
                     {/* Typing Effect */}
                     <div className="h-8 flex items-center justify-center lg:justify-start">
                       <span className="text-xl md:text-2xl text-blue-800 font-light goldman-regular">
                         {text}
                       </span>
-                      <span className="w-[3px] h-6 bg-gradient-to-t from-cyan-600 to-blue-500 ml-1 animate-blink"></span>
+                      <span className={`w-[3px] h-6 bg-gradient-to-t from-cyan-600 to-blue-500 ml-1 ${animationStep >= 3 ? 'animate-blink' : ''}`}></span>
                     </div>
                   </div>
                 </div>
 
                 <p
-                  className="text-lg md:text-xl text-gray-300 exo2-regular max-w-2xl mx-auto leading-relaxed animate-fade-in-up"
-                  style={{ animationDelay: '0.8s' }}
+                  className={`text-lg md:text-xl text-gray-300 exo2-regular max-w-2xl mx-auto leading-relaxed transition-all duration-700 ease-out ${
+                    animationStep >= 4 
+                      ? 'opacity-100 translate-y-0' 
+                      : 'opacity-0 translate-y-4'
+                  }`}
                 >
                   {personalInfo.bio}
                 </p>
 
                 {/* CTA Buttons */}
                 <div
-                  className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-in-up"
-                  style={{ animationDelay: '1s' }}
+                  className={`flex flex-col sm:flex-row gap-4 justify-center lg:justify-start transition-all duration-700 ease-out ${
+                    animationStep >= 5 
+                      ? 'opacity-100 translate-y-0' 
+                      : 'opacity-0 translate-y-4'
+                  }`}
                 >
                   <Button
                     onClick={downloadResume}
@@ -165,14 +203,17 @@ const Home = () => {
 
                 {/* Social Links */}
                 <div
-                  className="flex gap-8 justify-center lg:justify-start animate-fade-in-up mt-10 mb-10"
-                  style={{ animationDelay: '1.2s' }}
+                  className={`flex gap-8 justify-center lg:justify-start mt-10 mb-10 transition-all duration-700 ease-out ${
+                    animationStep >= 6 
+                      ? 'opacity-100 translate-y-0' 
+                      : 'opacity-0 translate-y-4'
+                  }`}
                 >
                   {[
                     { icon: Github, href: personalInfo.socialLinks.github, label: "GitHub" },
                     { icon: Linkedin, href: personalInfo.socialLinks.linkedin, label: "LinkedIn" },
                     { icon: Mail, href: `mailto:${personalInfo.email}`, label: "Email" }
-                  ].map(({ icon: IconComponent, href, label }, index) => {
+                  ].map(({ icon: IconComponent, href, label }) => {
                     const Icon = IconComponent;
                     return (
                       <a
@@ -180,8 +221,7 @@ const Home = () => {
                         href={href}
                         target={label !== "Email" ? "_blank" : undefined}
                         rel={label !== "Email" ? "noopener noreferrer" : undefined}
-                        className="p-3 bg-black/30 border border-gray-800 shadow-lg shadow-blue-500/50 rounded-xl text-white hover:bg-gray-800/50 hover:border-blue-800 transition-all duration-300 hover:scale-110 hover:shadow-none animate-fade-in-up"
-                        style={{ animationDelay: `${0.8 + index * 0.1}s` }}
+                        className="p-3 bg-black/30 border border-gray-800 shadow-lg shadow-blue-500/50 rounded-xl text-white hover:bg-gray-800/50 hover:border-blue-800 transition-all duration-300 hover:scale-110 hover:shadow-none"
                         aria-label={label}
                       >
                         <Icon size={24} />
@@ -217,8 +257,11 @@ const Home = () => {
           </div>
           {/* Scroll Indicator - Desktop Only */}
           <div
-            className="hidden md:block absolute bottom-4  left-1/2 transform -translate-x-1/2 animate-fade-in-up"
-            style={{ animationDelay: '1.2s' }}
+            className={`hidden md:block absolute bottom-4 left-1/2 transform -translate-x-1/2 transition-all duration-700 ease-out ${
+              animationStep >= 7 
+                ? 'opacity-100 translate-y-0' 
+                : 'opacity-0 translate-y-4'
+            }`}
           >
             <div
               className="flex flex-col items-center text-white/60 hover:text-white transition-all duration-300 cursor-pointer group"

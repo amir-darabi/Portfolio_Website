@@ -6,6 +6,7 @@ import Header from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import Hero from '@/components/sections/Hero';
 import LoadingScreen from '@/components/ui/LoadingScreen';
+import { LoadingProvider } from '@/lib/LoadingContext';
 
 // Lazy load heavy components
 const AnimatedBackground = dynamic(() => import('@/components/ui/AnimatedBackground'), {
@@ -33,7 +34,7 @@ export default function Home() {
   }, []);
 
   return (
-    <>
+    <LoadingProvider>
       <LoadingScreen />
       <div className="overflow-x-hidden">
         <Suspense fallback={<div className="fixed inset-0 bg-gradient-to-br from-black to-slate-800 -z-10" />}>
@@ -54,6 +55,6 @@ export default function Home() {
           <Footer />
         </main>
       </div>
-    </>
+    </LoadingProvider>
   );
 }

@@ -1,12 +1,14 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useLoading } from '@/lib/LoadingContext';
 
 const LoadingScreen = () => {
+  const { setIsLoading } = useLoading();
   const [progress, setProgress] = useState(0);
   const [isComplete, setIsComplete] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
-  const [progressStyle, setProgressStyle] = useState(5); // 1-5 for different styles
+  const [progressStyle] = useState(5); // 1-5 for different styles
   const [visibleWords, setVisibleWords] = useState(0);
 
   // Words that will appear one by one
@@ -45,13 +47,15 @@ const LoadingScreen = () => {
             // Complete loading after fade transition
             setTimeout(() => {
               setIsComplete(true);
+              setIsLoading(false); // Notify the context that loading is complete
               // Re-enable scrolling when loading is complete
               document.body.style.overflow = 'unset';
             }, 800); // Match the transition duration
           }, 500);
           return 100;
         }
-        return prevProgress + Math.random() * 8;
+        const nextProgress = prevProgress + Math.random() * 8;
+        return Math.min(nextProgress, 100); // Ensure it never goes over 100
       });
     }, 150);
 
@@ -60,7 +64,7 @@ const LoadingScreen = () => {
       // Re-enable scrolling on cleanup
       document.body.style.overflow = 'unset';
     };
-  }, [words.length]);
+  }, [words.length, setIsLoading]);
 
   if (isComplete) return null;
 
