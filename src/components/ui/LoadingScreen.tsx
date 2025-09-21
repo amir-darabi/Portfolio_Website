@@ -8,7 +8,6 @@ const LoadingScreen = () => {
   const [progress, setProgress] = useState(0);
   const [isComplete, setIsComplete] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
-  const [progressStyle] = useState(5); // 1-5 for different styles
   const [visibleWords, setVisibleWords] = useState(0);
 
   // Words that will appear one by one
@@ -23,9 +22,11 @@ const LoadingScreen = () => {
     // Prevent scrolling during loading
     document.body.style.overflow = 'hidden';
 
+    let wordTimer: NodeJS.Timeout;
+
     // Start showing words after icons appear
-    setTimeout(() => {
-      const wordTimer = setInterval(() => {
+    const wordTimeout = setTimeout(() => {
+      wordTimer = setInterval(() => {
         setVisibleWords((prev) => {
           if (prev < words.length) {
             return prev + 1;
@@ -54,12 +55,16 @@ const LoadingScreen = () => {
           }, 500);
           return 100;
         }
-        const nextProgress = prevProgress + Math.random() * 8;
-        return Math.min(nextProgress, 100); // Ensure it never goes over 100
+        const increment = Math.random() * 8 + 2; // Ensure minimum increment of 2
+        const newProgress = Math.min(prevProgress + increment, 100);
+        return newProgress;
       });
     }, 150);
 
+    // Cleanup function
     return () => {
+      clearTimeout(wordTimeout);
+      clearInterval(wordTimer);
       clearInterval(progressTimer);
       // Re-enable scrolling on cleanup
       document.body.style.overflow = 'unset';
@@ -117,38 +122,55 @@ const LoadingScreen = () => {
           {/* Progress Indicators */}
           <div className="mt-8 flex flex-col items-center space-y-4">
 
-            {/*  Morphing Shape */}
-            {progressStyle === 5 && (
-              <div className="relative w-20 h-20">
-                <svg className="w-20 h-20" viewBox="0 0 80 80">
-                  <defs>
-                    <linearGradient id="gradient5" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#06b6d4" />
-                      <stop offset="100%" stopColor="#8b5cf6" />
-                    </linearGradient>
-                  </defs>
-                  {/* Morphing shape based on progress */}
-                  <path
-                    d={`M40,10 
-                        L${55 + (progress/100) * 10},25 
-                        L${55 + (progress/100) * 10},55 
-                        L40,${60 + (progress/100) * 10}
-                        L${25 - (progress/100) * 10},55 
-                        L${25 - (progress/100) * 10},25 Z`}
-                    fill="url(#gradient5)"
-                    className="transition-all duration-300 ease-out"
-                    style={{
-                      filter: `drop-shadow(0 2px ${3 + (progress/100) * 4}px rgba(6, 182, 212, 0.3))`
-                    }}
+            {/* Digital Circuit */}
+            <div className="relative w-32 h-32">
+              <svg className="w-32 h-32" viewBox="0 0 100 100">
+                <defs>
+                  <linearGradient id="gradient8" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="rgba(43, 120, 187, 1)" />
+                  </linearGradient>
+                </defs>
+                
+                {/* Circuit paths */}
+                <g stroke="rgba(59, 130, 246, 0.3)" strokeWidth="1" fill="none">
+                  <path d="M20,50 L40,50 L40,30 L60,30 L60,50 L80,50" />
+                  <path d="M20,50 L40,50 L40,70 L60,70 L60,50 L80,50" />
+                  <path d="M50,20 L50,80" />
+                </g>
+                
+                {/* Animated progress path */}
+                <path
+                  d="M20,50 L40,50 L40,30 L60,30 L60,50 L80,50"
+                  stroke="url(#gradient8)"
+                  strokeWidth="2"
+                  fill="none"
+                  strokeLinecap="round"
+                  strokeDasharray="100"
+                  strokeDashoffset={100 - progress}
+                  className="transition-all duration-300"
+                  style={{ filter: 'drop-shadow(0 0 8px rgba(59, 130, 246, 0.6))' }}
+                />
+                
+                {/* Circuit nodes */}
+                {[{x: 20, y: 50}, {x: 40, y: 50}, {x: 40, y: 30}, {x: 60, y: 30}, {x: 60, y: 50}, {x: 80, y: 50}].map((node, i) => (
+                  <circle
+                    key={i}
+                    cx={node.x}
+                    cy={node.y}
+                    r="3"
+                    fill={progress > i * 16.67 ? "url(#gradient8)" : "rgba(59, 130, 246, 0.3)"}
+                    className="transition-all duration-300"
+                    style={{ filter: progress > i * 16.67 ? 'drop-shadow(0 0 4px rgba(59, 130, 246, 0.8))' : 'none' }}
                   />
-                </svg>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="text-sm font-bold text-white">{Math.round(progress)}%</span>
-                </div>
+                ))}
+              </svg>
+              <div className="absolute inset-0 flex items-center justify-center">
+                <span className="text-sm font-bold text-cyan-300">{Math.round(progress)}%</span>
               </div>
-            )}
+            </div>
 
           </div>
+
           
         </div>
       </div>
