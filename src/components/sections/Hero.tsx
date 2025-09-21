@@ -221,7 +221,7 @@ const Home = () => {
                         href={href}
                         target={label !== "Email" ? "_blank" : undefined}
                         rel={label !== "Email" ? "noopener noreferrer" : undefined}
-                        className="p-3 bg-black/30 border border-gray-800 shadow-lg shadow-blue-500/50 rounded-xl text-white hover:bg-gray-800/50 hover:border-blue-800 transition-all duration-300 hover:scale-110 hover:shadow-none"
+                        className="p-3 bg-black/30 border border-gray-800 shadow-lg shadow-blue-500/50 rounded-xl text-white hover:bg-gray-800/50 hover:border-blue-800 transition-all duration-300  hover:shadow-none"
                         aria-label={label}
                       >
                         <Icon size={24} />

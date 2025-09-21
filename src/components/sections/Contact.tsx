@@ -352,7 +352,7 @@ const Contact = () => {
                             href={href}
                             target={label !== "Email" ? "_blank" : undefined}
                             rel={label !== "Email" ? "noopener noreferrer" : undefined}
-                            className="p-3 bg-transparent border border-transparent shadow-lg shadow-cyan-600/50 rounded-xl text-white hover:bg-gray-800/50 transition-all duration-300 hover:scale-110 hover:shadow-none hover:border-cyan-400 animate-fade-in-up"
+                            className="p-3 bg-transparent border border-transparent shadow-lg shadow-cyan-600/50 rounded-xl text-white hover:bg-gray-800/50 transition-all duration-300  hover:shadow-none hover:border-cyan-400 animate-fade-in-up"
                             style={{ animationDelay: `${0.8 + index * 0.1}s` }}
                             aria-label={label}
                           >
