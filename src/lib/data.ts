@@ -73,7 +73,7 @@ export const experience: Experience[] = [
     position: "Full Stack Developer",
     location: "Amsterdam, Netherlands",
     startDate: "Apr 2025",
-    endDate: "Present",
+    endDate: "Aug 2025",
     description: [
       "Built scalable frontend features using React, Typescript and ChakraUI, with Django powering the backend",
       "Improved user experience and design consistency through collaboration with developers",
